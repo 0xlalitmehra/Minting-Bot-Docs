@@ -90,7 +90,7 @@ Manifests with a populated eligibility section automatically show up as "checkab
 
 ### 4. Raw JSON
 
-The full manifest as JSON, in a Monaco editor with syntax highlighting and validation. Two-way sync with the form tabs:
+The full manifest as JSON, in a code editor with syntax highlighting and validation. Two-way sync with the form tabs:
 
 * Edits in the form update the JSON.
 * Edits in the JSON, once valid, sync back to the form when you switch tabs.

@@ -9,7 +9,7 @@ Degens ships as a native desktop app for **Windows** and **macOS**. The installe
 | **Windows** | Windows 10 or 11, x64 |
 | **macOS** | macOS 10.15 (Catalina) or later |
 | **RAM** | 4 GB free (8 GB+ recommended if you're running 100+ tasks) |
-| **Disk** | ~250 MB for the app, plus whatever your local DB grows to |
+| **Disk** | ~250 MB for the app, plus whatever your local data grows to |
 | **Network** | A stable connection. Mints fail loudly when the network blinks. |
 
 The app runs in a 1920×1080 window by default and is resizable.
@@ -24,15 +24,15 @@ If you ever lose the installer, you don't need to redownload it before the next 
 
 ## Installing on Windows
 
-1. Download the `.exe` (NSIS installer) or `.msi` from the Discord channel.
+1. Download the Windows installer from the Discord channel.
 2. Double-click to run. Windows SmartScreen may yell at you the first time — click **More info → Run anyway**. The app is signed but unfamiliar to SmartScreen until enough installs warm up its reputation.
 3. Pick an install location, finish the wizard.
 4. The app launches automatically the first time. You can also pin it to the taskbar from there.
 
 ## Installing on macOS
 
-1. Download the `.dmg` from the Discord channel.
-2. Open the DMG and drag **Degens.app** into the **Applications** folder.
+1. Download the macOS installer from the Discord channel.
+2. Open the installer and drag **Degens.app** into the **Applications** folder.
 3. The first time you launch it, macOS will probably block it: **"Degens cannot be opened because it is from an unidentified developer."**
 4. Open **System Settings → Privacy & Security**, scroll to the bottom, and click **Open Anyway** next to the Degens warning.
 5. Re-launch the app.
@@ -41,10 +41,10 @@ If you ever lose the installer, you don't need to redownload it before the next 
 
 The app stores everything locally in your user profile:
 
-* **Windows:** `%APPDATA%\com.degens\` (database, logs, config)
+* **Windows:** `%APPDATA%\com.degens\`
 * **macOS:** `~/Library/Application Support/com.degens/`
 
-Don't poke around in there unless you know what you're doing — the database file is where your encrypted wallets live. **Back this up if you care about not re-importing wallets later.**
+Don't poke around in there unless you know what you're doing — that folder is where your encrypted wallets live. **Back it up if you care about not re-importing wallets later.**
 
 ## Updating
 

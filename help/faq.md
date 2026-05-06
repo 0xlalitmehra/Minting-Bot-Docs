@@ -6,7 +6,7 @@ Quick answers to the most common questions.
 
 ### Is this a wallet?
 
-No. Degens *manages* wallets — generates, imports, signs with them — but it's not a custodial wallet, an exchange, or a browser extension. Your keys live encrypted in a local SQLite database on your machine.
+No. Degens *manages* wallets — generates, imports, signs with them — but it's not a custodial wallet, an exchange, or a browser extension. Your keys live encrypted on your machine, in the app's local data folder.
 
 ### Does Degens see my private keys?
 
@@ -33,7 +33,7 @@ No. Everything — wallets, RPCs, proxies, captcha keys, manifests, settings —
 
 ### Can I run it on Linux?
 
-Not officially. The Tauri build targets Windows and macOS. A Linux build is technically possible from source but isn't shipped, supported, or auto-updated.
+Not officially. Windows and macOS are the supported platforms. Linux isn't shipped, supported, or auto-updated.
 
 ### Can I run two instances on different machines?
 
@@ -65,7 +65,7 @@ EVM and Sui support seed-phrase import with a passphrase. The app derives the fi
 
 ### How are keys encrypted?
 
-The app encrypts keys before storing them in the local SQLite DB. The encryption key is derived from local OS-level secure storage (Keychain on macOS, Credential Manager on Windows via Tauri).
+The app encrypts keys before storing them locally. Encryption is tied to your operating system's secure store, so the file isn't usable if someone copies it off your machine.
 
 ### Can I export a wallet's private key?
 
@@ -168,9 +168,9 @@ Yes — the app auto-relaunches after install. **Don't update mid-drop.**
 ### Does Degens phone home?
 
 For three things:
-1. **Auth validation** with the Cloudflare Worker (login + periodic role check).
-2. **Update check** to the R2 CDN endpoint.
-3. **Network requests you initiate** (RPC calls, platform APIs, captcha solvers).
+1. **Auth validation** — login plus a periodic check that your subscription is still active.
+2. **Update check** — to see if a newer version is out.
+3. **Network requests you initiate** — RPC calls, platform APIs, captcha solvers.
 
 Wallet keys are not transmitted. Manifests, settings, captcha keys are not transmitted.
 

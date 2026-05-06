@@ -7,10 +7,10 @@ When you launch Degens for the first time, you'll see a brief loading spinner wh
 There's exactly one way in: **Login with Discord.**
 
 1. Click **Login with Discord** on the login card.
-2. Your default browser opens an OAuth consent page hosted at the Degens auth worker.
+2. Your default browser opens a Discord login page.
 3. Approve the consent.
-4. The browser redirects back into the app via a `degensapp://` deep link.
-5. The app exchanges the code for a session token, validates your subscription role server-side, and drops you on the **Dashboard**.
+4. The browser redirects back into the app automatically.
+5. The app validates your subscription role and drops you on the **Dashboard**.
 
 If your browser doesn't bounce back into the app within ~60 seconds, you'll be returned to the login screen with a "Login window closed or timed out" message. Just click **Login with Discord** again.
 
@@ -44,9 +44,9 @@ To log out manually, go to **Settings → Account → Log Out**. This clears the
 
 ## What's stored where
 
-* Your **JWT session token** lives in the app's local secure store (managed by Tauri).
-* Your **device ID** is in `localStorage` under `degens.deviceId`.
-* Your **Discord username + avatar** is cached for the Settings → Account card.
+* Your **session token** is kept in the app's local secure store.
+* Your **device ID** is stored locally on this machine.
+* Your **Discord username + avatar** are cached for the Settings → Account card.
 * **No wallet keys, no API keys, no manifests** are sent during login. That all stays local.
 
 ---

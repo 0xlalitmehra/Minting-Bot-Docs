@@ -4,7 +4,7 @@
 
 Degens is a desktop app that handles the parts of minting that suck — managing wallets, juggling RPCs, checking whitelist eligibility, running mints across multiple wallets, and authoring custom platform integrations when something new drops.
 
-It's built as a native desktop app (Tauri), runs locally on your machine, and stores everything — wallets, RPCs, proxies, captcha keys, manifests — in a local database. **Nothing about your wallets ever leaves your computer.**
+It runs locally on your machine and keeps everything — wallets, RPCs, proxies, captcha keys, manifests — on your disk, encrypted. **Nothing about your wallets ever leaves your computer.**
 
 ## What you can do with it
 

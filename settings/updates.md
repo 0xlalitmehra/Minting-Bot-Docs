@@ -6,8 +6,7 @@ Degens auto-updates itself. You don't need to redownload installers — the app 
 
 1. About **8 seconds after you log in**, the app does a background check.
 2. The check is **throttled to once every 6 hours** so it's not constant.
-3. **Dev builds skip the check entirely.**
-4. If a newer version is available — and you haven't explicitly skipped it — a banner appears in the bottom-right corner.
+3. If a newer version is available — and you haven't explicitly skipped it — a banner appears in the bottom-right corner.
 
 The check is silent on failure. If the update server is down or your network blinks, the app just continues — you'll never see a "couldn't check for updates" error.
 
@@ -66,13 +65,7 @@ If the download fails or the install errors out:
 * **Background check:** every 6 hours, silent.
 * **Manual check:** any time, from Settings.
 * **Skip is per-version.** If you skip v2.1.0 and v2.2.0 ships, you get the banner for v2.2.0.
-* **Updates are signed.** Tauri's updater verifies the signature against the bundled public key before installing. A tampered update will be rejected.
-
-## Where updates come from
-
-Updates are hosted on a CDN bucket (`pub-...r2.dev/latest.json`) controlled by the Degens team. The app fetches that JSON, compares your version to the latest, and downloads the appropriate platform bundle (Windows `.exe`/`.msi` or macOS `.dmg`).
-
-You can see the current bundled endpoint by reading `src-tauri/tauri.conf.json` if you're poking around — but you don't need to configure anything.
+* **Updates are signed.** The app verifies the signature before installing. A tampered update is rejected.
 
 ## Tips
 

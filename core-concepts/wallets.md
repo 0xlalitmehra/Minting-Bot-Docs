@@ -82,12 +82,12 @@ Double-click a row (or the edit icon) to open the edit modal. You can rename, vi
 
 ## Where the keys actually live
 
-* All keys are stored **encrypted in the local SQLite database** that ships with the app.
-* The database lives in your user profile (`%APPDATA%\com.degens\` on Windows, `~/Library/Application Support/com.degens/` on macOS).
+* All keys are stored **encrypted on your disk**, in the app's local data folder.
+* The data folder lives in your user profile (`%APPDATA%\com.degens\` on Windows, `~/Library/Application Support/com.degens/` on macOS).
 * **There is no cloud sync.** The keys never leave your machine.
 * Watch-only wallets store only the address — no key material.
 
-> **Backups are your job.** If the DB file gets deleted or corrupted, your wallets are gone unless you have the original seed phrases / private keys somewhere safe. The Settings page has an [Export Data](../settings/settings.md#export-data) section that can dump wallets to CSV if you want a portable backup. Treat that file like cash.
+> **Backups are your job.** If the data folder gets deleted or corrupted, your wallets are gone unless you have the original seed phrases / private keys somewhere safe. The Settings page has an [Export Data](../settings/settings.md#export-data) section that can dump wallets to CSV if you want a portable backup. Treat that file like cash.
 
 ## Chains supported
 

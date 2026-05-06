@@ -6,11 +6,11 @@ Things break. Here's what to check before throwing the laptop.
 
 ### "Login window closed or timed out"
 
-Your browser didn't deep-link back into the app within 60 seconds. Causes:
+Your browser didn't bounce back into the app within 60 seconds. Causes:
 
 * You closed the browser tab.
-* Your browser's default handler for `degensapp://` got broken (uninstall/reinstall sometimes fixes this on Windows).
-* Antivirus stripped the deep link.
+* The app's URL handler got unregistered (a quick uninstall/reinstall fixes this on Windows).
+* Antivirus blocked the redirect.
 
 **Fix:** click **Login with Discord** again. If it keeps happening, restart the app and try a different browser.
 
@@ -24,11 +24,11 @@ Your role got removed. Run `/pay` in Discord to reactivate, then log in again. I
 
 ### Login button does nothing
 
-Edge case where the OAuth window doesn't open. Try:
+Edge case where the login window doesn't open. Try:
 
 1. Restart the app.
 2. Make sure your default browser is set in OS settings.
-3. On Windows, check that `degensapp://` is registered as a protocol handler (re-install the app to refresh).
+3. On Windows, re-install the app to refresh its URL handler registration.
 
 ## Wallets
 
