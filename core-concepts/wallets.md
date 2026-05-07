@@ -56,7 +56,7 @@ Each row shows:
 |---|---|
 | ☑ | Selection checkbox |
 | Name | Auto-generated ("Wallet 1") or imported name |
-| Address | Click to copy. The header has a 👁️ toggle that masks all addresses to `*****` for screen-sharing safety. |
+| Address | Click to copy. The header has an <img src="../images/icons/eye.svg" width="16" alt="eye"> toggle that masks all addresses to `*****` for screen-sharing safety. |
 | Balance | Native token balance for this wallet. For EVM groups, the balance reflects whichever chain you've picked in the bottom RPC selector. |
 | Actions | Refresh, edit, delete |
 
@@ -97,11 +97,11 @@ Double-click a row (or the edit icon) to open the edit modal. You can rename, vi
 
 | Chain family | Generate | Import (PK) | Import (Seed) | Watch-only |
 |---|---|---|---|---|
-| **EVM** (all chains) | ✅ | ✅ | ✅ | ✅ |
-| **Solana** | ✅ | ✅ | — | ✅ |
-| **Bitcoin** | ✅ | ✅ | — | ✅ |
-| **Sui** | ✅ | ✅ | ✅ | ✅ |
-| **Aptos** | ✅ | ✅ | — | ✅ |
+| **EVM** (all chains) | <img src="../images/icons/check.svg" width="16" alt="yes"> | <img src="../images/icons/check.svg" width="16" alt="yes"> | <img src="../images/icons/check.svg" width="16" alt="yes"> | <img src="../images/icons/check.svg" width="16" alt="yes"> |
+| **Solana** | <img src="../images/icons/check.svg" width="16" alt="yes"> | <img src="../images/icons/check.svg" width="16" alt="yes"> | — | <img src="../images/icons/check.svg" width="16" alt="yes"> |
+| **Bitcoin** | <img src="../images/icons/check.svg" width="16" alt="yes"> | <img src="../images/icons/check.svg" width="16" alt="yes"> | — | <img src="../images/icons/check.svg" width="16" alt="yes"> |
+| **Sui** | <img src="../images/icons/check.svg" width="16" alt="yes"> | <img src="../images/icons/check.svg" width="16" alt="yes"> | <img src="../images/icons/check.svg" width="16" alt="yes"> | <img src="../images/icons/check.svg" width="16" alt="yes"> |
+| **Aptos** | <img src="../images/icons/check.svg" width="16" alt="yes"> | <img src="../images/icons/check.svg" width="16" alt="yes"> | — | <img src="../images/icons/check.svg" width="16" alt="yes"> |
 
 EVM groups cover every EVM chain (Ethereum, Arbitrum, Base, Polygon, etc.) — the chain is a per-task setting, not per-group. The other chains are 1 group = 1 chain.
 

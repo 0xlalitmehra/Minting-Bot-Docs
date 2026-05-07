@@ -50,7 +50,7 @@ Same drill as wallets and RPCs:
 
 * **Ping (N)** — re-test.
 * **Delete (N)** — remove with confirmation.
-* The 👁️ mask toggle redacts the IP / port columns for screen-share safety.
+* The <img src="../images/icons/eye.svg" width="16" alt="eye"> mask toggle redacts the IP / port columns for screen-share safety.
 
 ## Editing a proxy
 

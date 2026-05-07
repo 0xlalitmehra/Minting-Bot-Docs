@@ -43,7 +43,7 @@ Below that, a per-wallet row shows:
 * **Wallet name and address**
 * **Phase badges** — one per phase the platform exposes. Each badge shows:
   * Phase name (e.g., "Public", "Allowlist", "Phase 1")
-  * Eligibility (✅ / ❌)
+  * Eligibility (<img src="../images/icons/check.svg" width="16" alt="yes"> / <img src="../images/icons/x.svg" width="16" alt="no">)
   * Per-phase max mint per wallet, if known
 
 A wallet that's eligible **for any non-public phase** is highlighted as a "WL hit". Wallets that are only eligible for the public sale aren't usually worth bulk-grouping — everyone is eligible for public.

@@ -14,16 +14,16 @@ Order, top to bottom:
 
 | Icon | Page | What it's for |
 |---|---|---|
-| 🏠 | **Dashboard** | Quick utilities (gas, hex, PnL, unix) |
-| ✅ | **Tasks** | Run mint automations |
-| 👛 | **Wallets** | Manage wallet groups across chains |
-| ⚡ | **RPCs** | Manage RPC endpoint groups |
-| 📡 | **Proxies** | Manage proxy lists |
-| 🛡️ | **Captcha APIs** | Store API keys for captcha solvers |
-| 🖼️ | **NFTs** | Bulk consolidate/disperse NFT holdings |
-| 📋 | **WL Checker** | Bulk-check whitelist eligibility |
-| 🧪 | **Laboratory** | Author custom platform manifests |
-| ⚙️ | **Settings** | Preferences, API keys, account |
+| <img src="../images/icons/layout-dashboard.svg" width="20" alt="Dashboard"> | **Dashboard** | Quick utilities (gas, hex, PnL, unix) |
+| <img src="../images/icons/check-square.svg" width="20" alt="Tasks"> | **Tasks** | Run mint automations |
+| <img src="../images/icons/wallet.svg" width="20" alt="Wallets"> | **Wallets** | Manage wallet groups across chains |
+| <img src="../images/icons/zap.svg" width="20" alt="RPCs"> | **RPCs** | Manage RPC endpoint groups |
+| <img src="../images/icons/router.svg" width="20" alt="Proxies"> | **Proxies** | Manage proxy lists |
+| <img src="../images/icons/shield.svg" width="20" alt="Captcha"> | **Captcha APIs** | Store API keys for captcha solvers |
+| <img src="../images/icons/image.svg" width="20" alt="NFTs"> | **NFTs** | Bulk consolidate/disperse NFT holdings |
+| <img src="../images/icons/list-checks.svg" width="20" alt="WL Checker"> | **WL Checker** | Bulk-check whitelist eligibility |
+| <img src="../images/icons/flask-conical.svg" width="20" alt="Laboratory"> | **Laboratory** | Author custom platform manifests |
+| <img src="../images/icons/cog.svg" width="20" alt="Settings"> | **Settings** | Preferences, API keys, account |
 
 The sidebar also shows the live **Ethereum gas tracker** at the bottom — three cards (Normal / Fast / Instant) that update every few seconds. Plug in an Alchemy key in Settings to avoid public-RPC rate limits.
 

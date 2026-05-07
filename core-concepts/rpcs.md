@@ -77,7 +77,7 @@ Click the edit icon on a row to open the edit modal. You can:
 
 * **Ping (N)** — re-test selected.
 * **Delete (N)** — bulk delete with confirmation.
-* The 👁️ mask toggle in the header redacts URLs to `*****` so you can share screenshots without leaking your private RPC keys.
+* The <img src="../images/icons/eye.svg" width="16" alt="eye"> mask toggle in the header redacts URLs to `*****` so you can share screenshots without leaking your private RPC keys.
 
 ## Practical tips
 

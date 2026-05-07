@@ -87,7 +87,7 @@ Each row shows:
 | Platform | Logo or manifest icon |
 | Gas | Mode + prices ("Auto-FAST", "150 / 160 Gwei"). Mask toggle works here too. |
 | Status | A badge — see lifecycle below |
-| Actions | ▶ run · ⏹ stop · 🗑 delete · 🔁 repeater |
+| Actions | <img src="../images/icons/play.svg" width="16" alt="run"> run · <img src="../images/icons/square.svg" width="16" alt="stop"> stop · <img src="../images/icons/trash-2.svg" width="16" alt="delete"> delete · <img src="../images/icons/repeat.svg" width="16" alt="repeater"> repeater |
 
 Selected rows highlight cyan. Errored rows show red. Successes go green.
 
@@ -122,7 +122,7 @@ Failed rows show an error chip with the truncated reason; click to see the tx ha
 
 ## Running tasks
 
-* **Single task** — ▶ icon on the row.
+* **Single task** — <img src="../images/icons/play.svg" width="16" alt="run"> icon on the row.
 * **Bulk run** — tick the checkboxes (or the header checkbox to select all in the group), then **Run** in the bottom toolbar. Selected tasks fire in parallel.
 * **Stop** — works on a running row, or in bulk on selected.
 * **Delete** — only enabled on non-running tasks. Stop first.
@@ -142,7 +142,7 @@ Setting a past timestamp = "run immediately". You can pre-stage tasks scheduled 
 
 ## Repeater
 
-Click 🔁 on a row to set a repeat count. The task will run that many times in succession (mints N times, advancing nonce each time, on the same wallet).
+Click <img src="../images/icons/repeat.svg" width="16" alt="repeater"> on a row to set a repeat count. The task will run that many times in succession (mints N times, advancing nonce each time, on the same wallet).
 
 * The row shows progress as `2/5`, `3/5`, etc.
 * After the limit is hit, the task auto-stops.
