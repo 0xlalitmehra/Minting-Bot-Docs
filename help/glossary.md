@@ -2,10 +2,6 @@
 
 Quick definitions for the jargon you'll hit across the docs and Discord. Casual, not academic.
 
-## A
-
-**Allowlist** — a list of addresses pre-approved to mint a phase. Synonym for "whitelist" but newer / more politically neutral.
-
 ## B
 
 **Base fee** *(EVM)* — the minimum gas price the network is currently charging. Set algorithmically; you can't bid below it. Often written `gwei`.
@@ -92,8 +88,6 @@ Quick definitions for the jargon you'll hit across the docs and Discord. Casual,
 
 ## S
 
-**SeaDrop** — OpenSea's drop contract (`0x00005EA00Ac477B1030CE78506496e8C2dE24bf5`). Most OpenSea drops route through it. The mint API encodes the price + signed allowlist proof in the calldata; the contract verifies.
-
 **Seed phrase** *(also "mnemonic")* — 12 or 24 words that deterministically derive a wallet's keys. Whoever has these owns the wallet.
 
 **Send mode** — Tasks setting that auto-transfers a successful mint to a destination wallet (set in [Settings → Wallet Settings](../settings/settings.md#wallet-settings)). Skips the manual consolidate step.
@@ -116,7 +110,7 @@ Quick definitions for the jargon you'll hit across the docs and Discord. Casual,
 
 **Wei** — the smallest unit of ETH. `1 ETH = 10^18 wei`. Most APIs return values in wei to avoid float precision loss.
 
-**Whitelist (WL)** — the gated phase of a drop where only pre-approved wallets can mint, usually at a discount. The [WL Checker](../features/whitelist-checker.md) is built around this.
+**Whitelist (WL)** *(also "allowlist")* — the gated phase of a drop where only pre-approved wallets can mint, usually at a discount. The [WL Checker](../features/whitelist-checker.md) is built around this.
 
 ---
 
