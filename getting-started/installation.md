@@ -22,24 +22,20 @@ The app runs in a 1920×1080 window by default and is resizable.
 
 If you ever lose the installer, you don't need to redownload it before the next launch — auto-update handles that. See [Updates](../settings/updates.md).
 
-## Installing
+## Installing on Windows
 
-{% tabs %}
-{% tab title="Windows" %}
 1. Download the Windows installer from the Discord channel.
 2. Double-click to run. Windows SmartScreen may yell at you the first time — click **More info → Run anyway**. The app is signed but unfamiliar to SmartScreen until enough installs warm up its reputation.
 3. Pick an install location, finish the wizard.
 4. The app launches automatically the first time. You can also pin it to the taskbar from there.
-{% endtab %}
 
-{% tab title="macOS" %}
+## Installing on macOS
+
 1. Download the macOS installer from the Discord channel.
 2. Open the installer and drag **Degens.app** into the **Applications** folder.
 3. The first time you launch it, macOS will probably block it: **"Degens cannot be opened because it is from an unidentified developer."**
 4. Open **System Settings → Privacy & Security**, scroll to the bottom, and click **Open Anyway** next to the Degens warning.
 5. Re-launch the app.
-{% endtab %}
-{% endtabs %}
 
 ## What gets installed where
 

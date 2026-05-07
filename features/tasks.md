@@ -111,19 +111,20 @@ Selected rows highlight cyan. Errored rows show red. Successes go green.
 
 ## Status lifecycle
 
-```mermaid
-stateDiagram-v2
-    [*] --> idle
-    idle --> running: Run
-    running --> confirming: tx broadcast
-    confirming --> success: confirmed
-    confirming --> failed: revert
-    running --> failed: pre-flight error
-    idle --> stopped: Stop
-    running --> stopped: Stop
-    confirming --> stopped: Stop
-    success --> transferring: send mode on
-    transferring --> transferred: NFT delivered
+```
+   ┌────┐    Run     ┌─────────┐  broadcast  ┌────────────┐  confirmed  ┌─────────┐
+   │idle│ ─────────► │ running │ ──────────► │ confirming │ ──────────► │ success │
+   └────┘            └────┬────┘             └──────┬─────┘             └────┬────┘
+                          │                         │                        │ send mode
+                  pre-flight error              revert                       ▼
+                          ▼                         ▼                  ┌──────────────┐
+                       ┌──────┐                  ┌──────┐               │ transferring │
+                       │failed│                  │failed│               └──────┬───────┘
+                       └──────┘                  └──────┘                      │
+                                                                               ▼
+                                                                       ┌─────────────┐
+   Any state can transition to ──► stopped  (user clicked Stop)        │ transferred │
+                                                                       └─────────────┘
 ```
 
 With **batch mode**, runners enter a `waiting` state until the leader broadcasts. With **send mode**, a successful task auto-transfers the NFT to the destination wallet — the row goes through `transferring` before settling on `transferred`.
