@@ -35,6 +35,7 @@ You have two options (mutually exclusive — the form disables one when the othe
 The range is **capped at 2000 IDs** to prevent UI freezes — if you need more, do it in chunks.
 
 The form validates while you type:
+
 * Non-numeric → rejected.
 * End < Start → "reversed" error.
 * Span > 2000 → "too large".
@@ -74,12 +75,8 @@ The action panel shows progress as the batch runs. You'll see per-transfer succe
 ## Gotchas
 
 * **Source wallets need native token for gas.** A wallet with NFTs but no ETH/MATIC/whatever will fail the transfer.
-* **The detect step has a 500ms debounce** while you type — give it a moment after pasting.
 * **ERC-1155 single ID overrides range.** If you fill both fields by accident, only the single ID is used.
-* **Marketplace listings count as ownership.** If a wallet has an active listing on a token, the transfer can fail because the marketplace contract has approval. Cancel listings first if you hit weird transfer reverts.
-* **Approvals.** Some workflows require setting `setApprovalForAll` on the source wallet first if the contract uses operator-style transfers. The app's transfer flow uses standard `transferFrom` / `safeTransferFrom`, which works for the vast majority of contracts.
-* **OpenSea is the default lookup source.** If a contract doesn't index well there, you may see incomplete inventory. Use the explicit token ID inputs to override.
 
----
+***
 
 Next: [Laboratory](laboratory.md).

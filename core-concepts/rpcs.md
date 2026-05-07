@@ -2,8 +2,6 @@
 
 RPCs are the URLs your wallets and tasks talk to. Every balance check, every gas estimate, every transaction broadcast goes through one. The RPCs page is where you manage them, ping them, and prune the slow ones.
 
-## Mental model
-
 * RPCs live inside **groups**.
 * Each group is **tied to one EVM chain ID** (e.g., 1 = Ethereum, 42161 = Arbitrum, 8453 = Base).
 * Each group can hold up to **500 endpoints**.
@@ -13,17 +11,13 @@ RPCs are the URLs your wallets and tasks talk to. Every balance check, every gas
 **The RPCs page is EVM-only.** Solana, Sui, Aptos, and Bitcoin use built-in defaults from the chain SDKs and don't surface here.
 {% endhint %}
 
-![RPCs page after a ping pass — Mainnet group with mixed results (fast latency on some, still "unknown" on others).](../images/rpcs.jpg)
+![RPCs page after a ping pass — Mainnet group with mixed results (fast latency on some, still "unknown" on others).](../.gitbook/assets/rpcs.jpg)
 
 ## Adding RPCs
 
 Click **Add RPC** in the bottom toolbar. You'll see a textarea — paste URLs in any of these formats, one per line:
 
-```
-https://eth-mainnet.g.alchemy.com/v2/YOUR_KEY
-My Alchemy,https://eth-mainnet.g.alchemy.com/v2/YOUR_KEY
-https://rpc.ankr.com/eth
-```
+<figure><img src="../.gitbook/assets/image (9).png" alt="" width="452"><figcaption></figcaption></figure>
 
 * Bare URL → name auto-derived from the hostname.
 * `name,URL` → custom name.
@@ -62,34 +56,27 @@ Click **Create Group** at the top of the page. Pick:
 
 The group strip across the top lets you switch between groups. Each group's chain is shown in the tab. You can rename or delete groups from the tab actions.
 
-## Default RPC group per chain
-
-Most workflows want a "default" RPC group to use without thinking about it. The default selector lives in the **Wallets** page bottom toolbar (when an EVM group is selected) — pick which RPC group to use for that chain's balance refreshes. The setting persists.
-
-For tasks, the RPC group is selected per-task at task creation time and stored on the task itself.
-
 ## Editing an RPC
 
 Click the edit icon on a row to open the edit modal. You can:
 
 * Rename it.
 * Replace the URL.
-* Override the chain ID (rare — only if the URL serves a different chain than its group).
 * Copy the URL to clipboard.
 
 ## Bulk operations
 
 * **Ping (N)** — re-test selected.
 * **Delete (N)** — bulk delete with confirmation.
-* The <img src="../images/icons/eye.svg" width="16" alt="eye"> mask toggle in the header redacts URLs to `*****` so you can share screenshots without leaking your private RPC keys.
+* The ![eye](../.gitbook/assets/eye.svg) mask toggle in the header redacts URLs to `*****` so you can share screenshots without leaking your private RPC keys.
 
 ## Practical tips
 
 * **Mix providers.** A group with Alchemy + Infura + Ankr + a public node is more resilient than 5 endpoints from the same vendor.
-* **Add private keys, not free tier.** Public free RPCs rate-limit hard during a hyped mint. If you can afford an Alchemy or QuickNode key, the mint loss saved on the first failed attempt usually pays for the month.
+* **Add private RPCs, not free tier.** Public free RPCs rate-limit hard during a hyped mint. If you can afford an Alchemy or QuickNode key, the mint loss saved on the first failed attempt usually pays for the month.
 * **Re-ping before big drops.** Endpoints go down. A two-minute ping pass right before a mint window catches problems you'd otherwise hit live.
 * **For Base / Optimism / Arbitrum**, Alchemy and the chain's official RPC tend to be the most reliable; public RPCs are usually congested.
 
----
+***
 
 Next: [Proxies](proxies.md).

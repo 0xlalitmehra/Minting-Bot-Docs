@@ -4,16 +4,16 @@ The Laboratory is where power users add **custom platforms** to the app. A new c
 
 **On this page:**
 
-* [What's a manifest?](#whats-a-manifest)
-* [The Laboratory page](#the-laboratory-page)
-* [The editor — Edit mode](#the-editor--edit-mode)
-* [The editor — Test mode](#the-editor--test-mode)
-* [Phase 2 features](#phase-2-features)
-* [How custom platforms surface elsewhere](#how-custom-platforms-surface-elsewhere)
-* [What's missing today (be honest)](#whats-missing-today-be-honest)
-* [Authoring workflow, end-to-end](#authoring-workflow-end-to-end)
+* [What's a manifest?](laboratory.md#whats-a-manifest)
+* [The Laboratory page](laboratory.md#the-laboratory-page)
+* [The editor — Edit mode](laboratory.md#the-editor--edit-mode)
+* [The editor — Test mode](laboratory.md#the-editor--test-mode)
+* [Phase 2 features](laboratory.md#phase-2-features)
+* [How custom platforms surface elsewhere](laboratory.md#how-custom-platforms-surface-elsewhere)
+* [What's missing today (be honest)](laboratory.md#whats-missing-today-be-honest)
+* [Authoring workflow, end-to-end](laboratory.md#authoring-workflow-end-to-end)
 
----
+***
 
 Lab platforms show up in the [Whitelist Checker](whitelist-checker.md) (if eligibility is defined) and the [Tasks](tasks.md) page (if a transaction step is defined), alongside built-ins.
 
@@ -74,17 +74,17 @@ In Edit mode, you have four tabs:
 
 A reorderable list. Click **Add Step** to insert one of:
 
-| Step | What it does |
-|---|---|
-| `http_request` | Makes an HTTP call. Templated URL, method, headers, body. Optionally extracts JSON paths into context. |
-| `extract` | Pulls data from a previous step's output (or from inputs) into a named context variable using JSONPath. |
-| `sign_message` | Signs an EIP-191 or EIP-712 message with the active wallet. **Phase 2 feature** — see below. |
-| `contract_call` | Read-only contract call (no tx, no gas). **Phase 2.** |
-| `send_transaction` | Sends a transaction. The mint, basically. **Phase 2.** |
+| Step               | What it does                                                                                            |
+| ------------------ | ------------------------------------------------------------------------------------------------------- |
+| `http_request`     | Makes an HTTP call. Templated URL, method, headers, body. Optionally extracts JSON paths into context.  |
+| `extract`          | Pulls data from a previous step's output (or from inputs) into a named context variable using JSONPath. |
+| `sign_message`     | Signs an EIP-191 or EIP-712 message with the active wallet. **Phase 2 feature** — see below.            |
+| `contract_call`    | Read-only contract call (no tx, no gas). **Phase 2.**                                                   |
+| `send_transaction` | Sends a transaction. The mint, basically. **Phase 2.**                                                  |
 
 Steps are collapsible cards with inline validation. If you reference a template variable that doesn't exist (e.g., `{{response.foo}}` when no step set `response`), you'll see an amber warning right on the card.
 
-![Laboratory editor on the Steps tab — an `http_request` step expanded with URL, headers, JSON body, timeout, expected status, and retry config.](../images/laboratory.png)
+![Laboratory editor on the Steps tab — an http\_request step expanded with URL, headers, JSON body, timeout, expected status, and retry config.](../.gitbook/assets/laboratory.png)
 
 #### Templates
 
@@ -122,7 +122,7 @@ Across the top of the editor:
 
 * **Unsaved badge** — shows when the current state differs from the last saved version.
 * **Validation chip** — shows a count of validation errors. Click to expand a per-tab breakdown.
-* **Enable Phase 2 features** — upgrades `schemaVersion` from 1 to 2, unlocking `sign_message`, `contract_call`, and `send_transaction`. Once upgraded, you can't downgrade. Read the [Phase 2 caveats](#phase-2-features) below before clicking.
+* **Enable Phase 2 features** — upgrades `schemaVersion` from 1 to 2, unlocking `sign_message`, `contract_call`, and `send_transaction`. Once upgraded, you can't downgrade. Read the [Phase 2 caveats](laboratory.md#phase-2-features) below before clicking.
 * **Save** — disabled until the manifest is dirty, valid, and has no local errors. `Ctrl+S` works too.
 
 ## The editor — Test mode
@@ -161,11 +161,13 @@ Clicking it opens the standard task creation form, pre-populated with the dry-ru
 ## Phase 2 features
 
 Manifests start at `schemaVersion: 1`. That version supports:
+
 * `http_request`, `extract`
 * `singlePhase` and `phaseList` eligibility
 
 Click **Enable Phase 2 features** to upgrade to `schemaVersion: 2`. This unlocks:
-* `sign_message` — EIP-191 personal_sign or EIP-712 typed-data signing with a saved wallet
+
+* `sign_message` — EIP-191 personal\_sign or EIP-712 typed-data signing with a saved wallet
 * `contract_call` — read-only contract calls with templated args
 * `send_transaction` — actual transaction broadcast (the mint)
 
@@ -179,9 +181,6 @@ Once you upgrade, the schema can't be reverted. Phase 1 manifests will run forev
 
 ## What's missing today (be honest)
 
-* **No file import/export buttons.** Use the Raw JSON tab.
-* **No public manifest gallery.** Sharing is manual, in Discord.
-* **No standalone "WL-only" publish toggle** — the same manifest serves both checker and task; the engine decides based on what steps are populated.
 * **EVM-only.** Lab manifests don't yet support Solana, Sui, Aptos, or Bitcoin platforms — Phase 2 architecture work for non-EVM chains is on the roadmap.
 
 ## Authoring workflow, end-to-end
@@ -190,7 +189,7 @@ A typical first manifest:
 
 1. **+ New platform.** Name it. Pick a chain ID. Add an icon if you want.
 2. **Metadata → URL Detection** — add the platform's hostname and a regex with a slug capture group.
-3. **Steps → Add http_request** — configure GET to the platform's drop API, like `https://api.platform.xyz/drops/{{slug}}`.
+3. **Steps → Add http\_request** — configure GET to the platform's drop API, like `https://api.platform.xyz/drops/{{slug}}`.
 4. **Add an extract step** to pull `phases` from the response into context: `{{response.phases}}`.
 5. **Eligibility → phaseList** — point at `{{response.phases}}`. For each phase, define `isEligible` (often `{{phase.allowlist}}` includes `{{wallet}}`).
 6. **Save.**
@@ -201,6 +200,6 @@ A typical first manifest:
 
 That's it. You've built your own platform.
 
----
+***
 
 Next: [Settings](../settings/settings.md).

@@ -2,7 +2,7 @@
 
 When you launch Degens for the first time, you'll see a brief loading spinner while the app provisions a unique device ID, followed by the **Login screen**.
 
-![The Degens login screen — Discord OAuth is the only way in.](../images/login.png)
+![The Degens login screen — Discord OAuth is the only way in.](../.gitbook/assets/login.png)
 
 ## Logging in
 
@@ -14,7 +14,7 @@ There's exactly one way in: **Login with Discord.**
 4. The browser redirects back into the app automatically.
 5. The app validates your subscription role and drops you on the **Dashboard**.
 
-If your browser doesn't bounce back into the app within ~60 seconds, you'll be returned to the login screen with a "Login window closed or timed out" message. Just click **Login with Discord** again.
+If your browser doesn't bounce back into the app within \~60 seconds, you'll be returned to the login screen with a "Login window closed or timed out" message. Just click **Login with Discord** again.
 
 {% hint style="info" %}
 **No password, no seed phrase, no private key needed to log in.** Your access is tied to your Discord account and your active subscription role in the server.
@@ -39,8 +39,7 @@ If you see this on login, it means your account is currently bound to a differen
 
 If your role is revoked while you're logged in (subscription expired, refunded, manually removed), the next session validation will sign you out and show the renewal screen.
 
-* If a renewal URL is configured (Whop, Lemon Squeezy, etc.), you'll see a **Renew subscription** button that opens the checkout in your browser.
-* Otherwise — and this is the default for Suby billing — you'll see instructions to run `/pay` from any channel in the Discord server.
+* You'll see instructions to run `/pay` from any channel in the Discord server to buy the subscription.
 
 Once your role is restored, log in again normally.
 
@@ -48,13 +47,8 @@ Once your role is restored, log in again normally.
 
 To log out manually, go to **Settings → Account → Log Out**. This clears the device binding too, so the next login on this machine is a clean bind.
 
-## What's stored where
 
-* Your **session token** is kept in the app's local secure store.
-* Your **device ID** is stored locally on this machine.
-* Your **Discord username + avatar** are cached for the Settings → Account card.
-* **No wallet keys, no API keys, no manifests** are sent during login. That all stays local.
 
----
+***
 
 Now that you're in: [Interface Tour](interface-tour.md).

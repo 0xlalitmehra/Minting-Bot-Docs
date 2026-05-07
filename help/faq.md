@@ -4,29 +4,25 @@ Quick answers to the most common questions.
 
 **On this page:**
 
-* [General](#general)
-* [Subscription](#subscription)
-* [Wallets](#wallets)
-* [RPCs](#rpcs)
-* [Tasks](#tasks)
-* [Whitelist Checker](#whitelist-checker)
-* [Laboratory](#laboratory)
-* [Updates](#updates)
-* [Privacy & safety](#privacy--safety)
+* [General](faq.md#general)
+* [Subscription](faq.md#subscription)
+* [Wallets](faq.md#wallets)
+* [RPCs](faq.md#rpcs)
+* [Tasks](faq.md#tasks)
+* [Whitelist Checker](faq.md#whitelist-checker)
+* [Laboratory](faq.md#laboratory)
+* [Updates](faq.md#updates)
+* [Privacy & safety](faq.md#privacy--safety)
 
----
+***
 
 ## General
 
 ### Is this a wallet?
 
-No. Degens *manages* wallets — generates, imports, signs with them — but it's not a custodial wallet, an exchange, or a browser extension. Your keys live encrypted on your machine, in the app's local data folder.
+No. Degens _manages_ wallets — generates, imports, signs with them — but it's not a custodial wallet, an exchange, or a browser extension. Your keys live encrypted on your machine, in the app's local data folder.
 
-### Does Degens see my private keys?
-
-Only the app does, on your machine. Keys are encrypted at rest, decrypted in-memory only when needed to sign a transaction, and never transmitted. The Discord auth flow does not touch your wallets.
-
-### Does it support [chain]?
+### Does it support \[chain]?
 
 Built-in:
 
@@ -43,7 +39,7 @@ Via [Laboratory](features/laboratory.md) manifests:
 
 ### Is my data synced anywhere?
 
-No. Everything — wallets, RPCs, proxies, captcha keys, manifests, settings — is local. There's no cloud account, no sync. The flip side: there's no cloud backup either. **Use [Export Data](settings/settings.md#export-data) regularly.**
+No. Everything — wallets, RPCs, proxies, captcha keys, manifests, settings — is local. There's no cloud account, no sync. The flip side: there's no cloud backup either. **Use** [**Export Data**](settings/settings.md#export-data) **regularly.**
 
 ### Can I run it on Linux?
 
@@ -57,25 +53,17 @@ No — device binding pins your account to one machine at a time. To switch, log
 
 ### How do I subscribe / renew?
 
-Run `/pay` in any channel of the Degens Discord server. The Suby bot handles billing and grants you the role.
+Run `/pay` in any channel of the Degens Discord server. The bot handles billing and grants you the role.
 
 ### My subscription expired mid-mint
 
 The session validation runs periodically. Once the role is revoked server-side, the next check signs you out. Renew, log back in, your data is still intact.
-
-### Can I refund?
-
-That's a Discord/Suby billing question — talk to the team in support.
 
 ## Wallets
 
 ### What chains can I import private keys for?
 
 EVM, Solana, Bitcoin, Aptos, Sui — all five chain families.
-
-### Can I import a seed phrase and derive multiple wallets?
-
-EVM and Sui support seed-phrase import with a passphrase. The app derives the first N accounts from the standard derivation paths. Other chains are private-key import only.
 
 ### How are keys encrypted?
 
@@ -98,10 +86,6 @@ Public RPCs rate-limit hard. During a hyped drop, public endpoints will throttle
 ### How many RPCs per group?
 
 Up to **500**. You won't need that many; 5–10 high-quality endpoints is usually enough.
-
-### Why is the RPCs page EVM-only?
-
-Solana, Sui, Aptos, and Bitcoin use the chain SDKs' built-in defaults; you don't manage RPCs the same way. (You may be able to override defaults in future versions, but it's not in the UI today.)
 
 ## Tasks
 
@@ -155,9 +139,7 @@ There's no built-in registry. Distribution is community-led — usually a Discor
 
 ### What's the difference between Phase 1 and Phase 2?
 
-Phase 1 is read-only: HTTP requests, data extraction, eligibility computation. Suitable for WL checkers.
-Phase 2 unlocks message signing, contract calls, and transaction sends — the parts needed for actual minting.
-You upgrade a manifest by clicking **Enable Phase 2 features** in the editor. Once upgraded, you can't downgrade.
+Phase 1 is read-only: HTTP requests, data extraction, eligibility computation. Suitable for WL checkers. Phase 2 unlocks message signing, contract calls, and transaction sends — the parts needed for actual minting. You upgrade a manifest by clicking **Enable Phase 2 features** in the editor. Once upgraded, you can't downgrade.
 
 ### Why doesn't my manifest show up in the WL Checker?
 
@@ -182,6 +164,7 @@ Yes — the app auto-relaunches after install. **Don't update mid-drop.**
 ### Does Degens phone home?
 
 For three things:
+
 1. **Auth validation** — login plus a periodic check that your subscription is still active.
 2. **Update check** — to see if a newer version is out.
 3. **Network requests you initiate** — RPC calls, platform APIs, captcha solvers.
@@ -198,4 +181,4 @@ Hardware wallets aren't currently supported as signers. Mints happen with hot ke
 
 ### What happens to my data if Degens shuts down?
 
-The app stops updating, but your local install keeps working as-is. Your wallets, manifests, and settings are local — Degens going away doesn't take them with it. (Until something on the auth side stops responding, at which point you'd be locked out of *new* logins. Export your wallets now, not later.)
+The app stops updating, but your local install keeps working as-is. Your wallets, manifests, and settings are local — Degens going away doesn't take them with it. (Until something on the auth side stops responding, at which point you'd be locked out of _new_ logins. Export your wallets now, not later.)

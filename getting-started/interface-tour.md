@@ -12,18 +12,18 @@ The sidebar is the only navigation. There's no router and no URLs — just click
 
 Order, top to bottom:
 
-| Icon | Page | What it's for |
-|---|---|---|
-| <img src="../images/icons/layout-dashboard.svg" width="20" alt="Dashboard"> | **Dashboard** | Quick utilities (gas, hex, PnL, unix) |
-| <img src="../images/icons/check-square.svg" width="20" alt="Tasks"> | **Tasks** | Run mint automations |
-| <img src="../images/icons/wallet.svg" width="20" alt="Wallets"> | **Wallets** | Manage wallet groups across chains |
-| <img src="../images/icons/zap.svg" width="20" alt="RPCs"> | **RPCs** | Manage RPC endpoint groups |
-| <img src="../images/icons/router.svg" width="20" alt="Proxies"> | **Proxies** | Manage proxy lists |
-| <img src="../images/icons/shield.svg" width="20" alt="Captcha"> | **Captcha APIs** | Store API keys for captcha solvers |
-| <img src="../images/icons/image.svg" width="20" alt="NFTs"> | **NFTs** | Bulk consolidate/disperse NFT holdings |
-| <img src="../images/icons/list-checks.svg" width="20" alt="WL Checker"> | **WL Checker** | Bulk-check whitelist eligibility |
-| <img src="../images/icons/flask-conical.svg" width="20" alt="Laboratory"> | **Laboratory** | Author custom platform manifests |
-| <img src="../images/icons/cog.svg" width="20" alt="Settings"> | **Settings** | Preferences, API keys, account |
+| Icon                                                  | Page             | What it's for                          |
+| ----------------------------------------------------- | ---------------- | -------------------------------------- |
+| ![Dashboard](../.gitbook/assets/layout-dashboard.svg) | **Dashboard**    | Quick utilities (gas, hex, PnL, unix)  |
+| ![Tasks](../.gitbook/assets/check-square.svg)         | **Tasks**        | Run mint automations                   |
+| ![Wallets](../.gitbook/assets/wallet.svg)             | **Wallets**      | Manage wallet groups across chains     |
+| ![RPCs](../.gitbook/assets/zap.svg)                   | **RPCs**         | Manage RPC endpoint groups             |
+| ![Proxies](../.gitbook/assets/router.svg)             | **Proxies**      | Manage proxy lists                     |
+| ![Captcha](../.gitbook/assets/shield.svg)             | **Captcha APIs** | Store API keys for captcha solvers     |
+| ![NFTs](../.gitbook/assets/image.svg)                 | **NFTs**         | Bulk consolidate/disperse NFT holdings |
+| ![WL Checker](../.gitbook/assets/list-checks.svg)     | **WL Checker**   | Bulk-check whitelist eligibility       |
+| ![Laboratory](../.gitbook/assets/flask-conical.svg)   | **Laboratory**   | Author custom platform manifests       |
+| ![Settings](../.gitbook/assets/cog.svg)               | **Settings**     | Preferences, API keys, account         |
 
 The sidebar also shows the live **Ethereum gas tracker** at the bottom — three cards (Normal / Fast / Instant) that update every few seconds. Plug in an Alchemy key in Settings to avoid public-RPC rate limits.
 
@@ -37,21 +37,17 @@ Across the top of the window:
 
 ## The main panel
 
-Whatever page you're on renders here. A few app-wide behaviors worth knowing:
-
-* **Lazy-loaded pages.** The first time you visit a page (Wallets, Tasks, etc.) it'll show a brief "Loading..." spinner while the page bundle downloads. Once loaded, it stays in memory.
-* **No right-click menu.** Browser-style context menus are disabled in production builds — click-driven UI only.
-* **Skip-to-content link.** Press `Tab` once after launch and you'll see a "Skip to content" link, mostly for accessibility.
+Whatever page you're on renders here.&#x20;
 
 ## Keyboard
 
 The app doesn't define many global shortcuts, but a few useful ones exist:
 
-| Shortcut | What it does |
-|---|---|
-| `Ctrl` + `+` | Zoom in (UI scale) |
-| `Ctrl` + `-` | Zoom out |
-| `Ctrl` + `0` | Reset zoom to 100% |
+| Shortcut                     | What it does              |
+| ---------------------------- | ------------------------- |
+| `Ctrl` + `+`                 | Zoom in (UI scale)        |
+| `Ctrl` + `-`                 | Zoom out                  |
+| `Ctrl` + `0`                 | Reset zoom to 100%        |
 | `Ctrl` + `S` (in Laboratory) | Save the current manifest |
 
 Most other interactions are click/select/drag.
@@ -60,6 +56,6 @@ Most other interactions are click/select/drag.
 
 Several pages (Wallets, RPCs, Proxies, Tasks) have a **mask** toggle in the table header that hides sensitive columns (private addresses, RPC URLs, gas prices) behind `*****`. Use it before screen-sharing. The data isn't going anywhere — you're just hiding it from the screen.
 
----
+***
 
 You're set. Next, learn how the building blocks work: [Wallets](../core-concepts/wallets.md).

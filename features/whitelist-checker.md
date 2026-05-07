@@ -12,7 +12,7 @@ The built-in checker supports **EVM** drops on:
 * **Blever**
 
 {% hint style="info" %}
-**Why not Element / HyperLaunch / Manifold?** Those platforms either require complex per-platform auth (sign-in flows the checker can't replicate cheaply) or expose phase data through endpoints that change too often to baseline. The minting side of [Tasks](tasks.md) supports them; the checker doesn't (yet).
+**Why not Element / HyperLaunch / Manifold?** There is not much hype around them and not many drops are launching on these so I didn't implement them yet but will try in future.
 {% endhint %}
 
 For everything else (custom platforms, new launches), use the [Laboratory](laboratory.md) — manifests with a `phaseList` eligibility section show up in this picker too.
@@ -26,6 +26,7 @@ For everything else (custom platforms, new launches), use the [Laboratory](labor
 5. Click **Check Eligibility**.
 
 While running, you'll see a progress counter ("Checking 7/35") and can:
+
 * **Pause** — stops at the current wallet; the rest stay queued.
 * **Resume** — picks up where you left off.
 * **Stop** — abandons the run; what's been checked is kept.
@@ -45,12 +46,12 @@ Below that, a per-wallet row shows:
 * **Wallet name and address**
 * **Phase badges** — one per phase the platform exposes. Each badge shows:
   * Phase name (e.g., "Public", "Allowlist", "Phase 1")
-  * Eligibility (<img src="../images/icons/check.svg" width="16" alt="yes"> / <img src="../images/icons/x.svg" width="16" alt="no">)
+  * Eligibility (![yes](../.gitbook/assets/check.svg) / ![no](../.gitbook/assets/x.svg))
   * Per-phase max mint per wallet, if known
 
 A wallet that's eligible **for any non-public phase** is highlighted as a "WL hit". Wallets that are only eligible for the public sale aren't usually worth bulk-grouping — everyone is eligible for public.
 
-![WL Checker results — summary cards on top, per-wallet phase badges (WL ✓ 10 / Public ✓ 1010), and the "Create Group" footer for spawning a new wallet group from eligible wallets.](../images/wl-checker-results.jpg)
+![WL Checker results — summary cards on top, per-wallet phase badges (WL ✓ 10 / Public ✓ 1010), and the "Create Group" footer for spawning a new wallet group from eligible wallets.](../.gitbook/assets/wl-checker-results.jpg)
 
 {% hint style="warning" %}
 **Results live in memory only.** Reload the page (or quit the app) and they're gone. There's no export button — copy what you need before you leave.
@@ -75,8 +76,7 @@ This is by far the highest-leverage feature in the app. A group with 200 wallets
 * **Run the check well before the drop.** Don't try this 30 seconds before mint — the platform's eligibility endpoints can lag behind their UI by a minute or two during high traffic.
 * **Re-run if eligibility was just published.** Some platforms publish WL updates in waves. If your first run shows 5/200 eligible and you expected more, refresh and try again in 5 minutes.
 * **Watch the rate limits.** Running thousands of wallets at once will eventually hit the platform's rate limit. The checker handles 429s gracefully but you may want to break large groups into smaller chunks.
-* **Use a proxy group** for very large checks. The checker uses the same proxy infrastructure as tasks — set up a clean proxy group ahead of time.
 
----
+***
 
 Once you know which wallets are eligible, run them. Next: [Tasks](tasks.md).

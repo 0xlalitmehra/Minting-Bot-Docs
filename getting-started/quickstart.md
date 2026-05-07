@@ -8,13 +8,13 @@ You want to mint something. Here's the fastest path from zero to a successful fi
 
 ## 1. Install and log in
 
-Install the app from the Discord channel ([full guide](installation.md)), launch it, click **Login with Discord**, approve the consent. You'll land on the Dashboard. *Total time: ~1 minute.*
+Install the app from the Discord channel ([full guide](installation.md)), launch it, click **Login with Discord**, approve the consent. You'll land on the Dashboard. _Total time: \~1 minute._
 
 ## 2. Add a wallet
 
 Sidebar → **Wallets** → **+ Create Group** → name it "Test", chain family **EVM** → save.
 
-Then in the bottom toolbar → **Import** → paste a private key (use a throwaway funded with ~0.02 ETH on whatever chain your target drop is on, e.g. Base or Ethereum) → **Import Wallets**.
+Then in the bottom toolbar → **Import** → paste a private key (use a throwaway funded with \~0.02 ETH on whatever chain your target drop is on, e.g. Base or Ethereum) → **Import Wallets**.
 
 You should see your wallet appear with a balance. If the balance shows `—` or `0` and you know it should be funded, see step 3 (your RPC isn't set yet).
 
@@ -23,12 +23,15 @@ You should see your wallet appear with a balance. If the balance shows `—` or 
 Sidebar → **RPCs** → **+ Create Group** → name it after the chain (e.g., "Base"), pick chain ID **8453** (Base) or **1** (Ethereum) → save.
 
 Then **Add RPC** → paste 1–2 URLs:
+
 * For Base: `https://mainnet.base.org` (public, fine for testing)
 * For Ethereum: a paid Alchemy/Infura/QuickNode key. Public RPCs throttle hard during real drops.
 
 Click **Ping** to verify it's reachable. Green means you're good.
 
-Now go back to **Wallets**, pick your wallet group, and pick the new RPC group from the bottom dropdown. Balances should populate.
+Now go back to **Wallets**, pick your wallet group, and pick the new RPC group from the bottom horizontal scroll bar. Balances should populate.
+
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 ## 4. Run a one-wallet test mint
 
@@ -64,14 +67,14 @@ If it goes **red (Failed)**, click the row's error chip to see the reason — an
 
 ## What to read next
 
-| If you want to... | Go to |
-|---|---|
-| Understand how wallets, RPCs, proxies fit together | [Core Concepts](../core-concepts/wallets.md) |
-| Bulk-check eligibility before queueing tasks | [Whitelist Checker](../features/whitelist-checker.md) |
-| Mint at scale with proxies + captcha | [Tasks](../features/tasks.md), [Proxies](../core-concepts/proxies.md), [Captcha](../core-concepts/captcha.md) |
-| Add a custom platform yourself | [Laboratory](../features/laboratory.md) |
-| Save settings, back up wallets | [Settings](../settings/settings.md) |
+| If you want to...                                  | Go to                                                                                                         |
+| -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| Understand how wallets, RPCs, proxies fit together | [Core Concepts](../core-concepts/wallets.md)                                                                  |
+| Bulk-check eligibility before queueing tasks       | [Whitelist Checker](../features/whitelist-checker.md)                                                         |
+| Mint at scale with proxies + captcha               | [Tasks](../features/tasks.md), [Proxies](../core-concepts/proxies.md), [Captcha](../core-concepts/captcha.md) |
+| Add a custom platform yourself                     | [Laboratory](../features/laboratory.md)                                                                       |
+| Save settings, back up wallets                     | [Settings](../settings/settings.md)                                                                           |
 
----
+***
 
 Stuck at any step? [FAQ](../help/faq.md) covers the basics. [Troubleshooting](../help/troubleshooting.md) covers when things break.

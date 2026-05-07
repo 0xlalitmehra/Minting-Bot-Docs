@@ -2,7 +2,7 @@
 
 Settings is a single scrollable page broken into sections. Open it from the sidebar (gear icon at the bottom).
 
-![The Settings page — Account, Default Network, About & Updates, UI Zoom, Export Data, API Keys, Wallet Settings, and Advanced Settings stacked top to bottom.](../images/settings.png)
+![The Settings page — Account, Default Network, About & Updates, UI Zoom, Export Data, API Keys, Wallet Settings, and Advanced Settings stacked top to bottom.](../.gitbook/assets/settings.png)
 
 ## Overview
 
@@ -104,6 +104,6 @@ Same idea, but for gas limit. The engine tries to estimate from the contract; th
 
 Each card has +/- buttons, an input field with live validation, and a **Save** button. Each saves independently.
 
----
+***
 
 Next: [Updates](updates.md).

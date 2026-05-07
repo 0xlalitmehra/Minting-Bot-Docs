@@ -2,16 +2,14 @@
 
 Wallets are the foundation. Every task, every WL check, every balance refresh runs against a wallet. The Wallets page is where you organize them.
 
-## Mental model
-
 * Wallets live inside **groups**.
 * Each group is **tied to one chain family** (EVM, Solana, Bitcoin, Sui, or Aptos).
 * Each group can hold up to **1,000 wallets**.
-* Wallets store an **encrypted private key** (or no key at all if it's watch-only) and an address.
+* Wallets store an **private key** (or no key at all if it's watch-only) and an address.
 
 You'll typically have a few groups per chain — e.g., "EVM Main", "EVM Burners", "Solana", "Sui Test" — and pick a group when you're queueing a task.
 
-![Wallets page — group strip across the top, wallet table with masked addresses, bulk-action toolbar at the bottom.](../images/wallets.jpg)
+![Wallets page — group strip across the top, wallet table with masked addresses, bulk-action toolbar at the bottom.](../.gitbook/assets/wallets.jpg)
 
 ## Adding wallets
 
@@ -19,21 +17,19 @@ Two paths from the bottom toolbar:
 
 ### Generate new
 
-Click **Create**. Pick how many wallets to generate (per chain, in the chain's native format). The app generates them client-side, encrypts the keys, and saves them into the active group. You'll see them appear in the table.
-
-For Sui, the create flow has a couple of extra steps because of how its key derivation works.
+Click **Create**. Pick how many wallets to generate (per chain, in the chain's native format). The app generates them client-side, and saves them into the active group. You'll see them appear in the table.
 
 ### Import existing
 
 Click **Import**. You'll see a tabbed dialog with three import modes:
 
-| Mode | Format | Notes |
-|---|---|---|
-| **Private Key** | One key per line, or `name,privatekey` per line | EVM, Solana, Bitcoin, Aptos, Sui all supported |
-| **Seed Phrase** | Mnemonic + optional passphrase | EVM and Sui — derives the first N accounts |
-| **Address only** | Just an address | Watch-only — useful for tracking, can't sign txs |
+| Mode             | Format                                          | Notes                                            |
+| ---------------- | ----------------------------------------------- | ------------------------------------------------ |
+| **Private Key**  | One key per line, or `name,privatekey` per line | EVM, Solana, Bitcoin, Aptos, Sui all supported   |
+| **Seed Phrase**  | Mnemonic                                        | Derives the first N accounts                     |
+| **Address only** | Just an address                                 | Watch-only — useful for tracking, can't sign txs |
 
-![The Import Wallets modal — Private Key tab active, with a format hint and a file-import button.](../images/wallet-import.png)
+![The Import Wallets modal — Private Key tab active, with a format hint and a file-import button.](../.gitbook/assets/wallet-import.png)
 
 You can also click the file-picker to import from a `.txt` or `.csv` instead of pasting.
 
@@ -52,19 +48,19 @@ The horizontal strip at the top of the page is your group switcher. Each tab is 
 
 Each row shows:
 
-| Column | What it is |
-|---|---|
-| ☑ | Selection checkbox |
-| Name | Auto-generated ("Wallet 1") or imported name |
-| Address | Click to copy. The header has an <img src="../images/icons/eye.svg" width="16" alt="eye"> toggle that masks all addresses to `*****` for screen-sharing safety. |
-| Balance | Native token balance for this wallet. For EVM groups, the balance reflects whichever chain you've picked in the bottom RPC selector. |
-| Actions | Refresh, edit, delete |
+| Column  | What it is                                                                                                                                |
+| ------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| ☑       | Selection checkbox                                                                                                                        |
+| Name    | Auto-generated ("Wallet 1") or imported name                                                                                              |
+| Address | Click to copy. The header has an ![eye](../.gitbook/assets/eye.svg) toggle that masks all addresses to `*****` for screen-sharing safety. |
+| Balance | Native token balance for this wallet. For EVM groups, the balance reflects whichever chain you've picked in the bottom RPC selector.      |
+| Actions | Refresh, edit, delete                                                                                                                     |
 
 ## Refreshing balances
 
 * **Single wallet** — refresh icon on the row.
 * **Selected wallets** — tick the checkboxes, then click **Refresh (N)** in the bottom toolbar. Runs in parallel.
-* **EVM-specific:** The bottom toolbar has a chain dropdown. Whatever you pick there is the chain balances are read from. Switching it reruns the fetches.
+* **EVM-specific:** The bottom toolbar has a chain horizontal scroll bar. Whatever you pick there is the chain balances are read from. Switching it reruns the fetches.
 
 If a balance comes back as `—` or 0 unexpectedly, check your RPC group health under [RPCs](rpcs.md) — a dead RPC will silently fail the refresh.
 
@@ -72,21 +68,21 @@ If a balance comes back as `—` or 0 unexpectedly, check your RPC group health 
 
 Selecting one or more wallets activates the bottom toolbar:
 
-* **Copy (N)** — copies the addresses to your clipboard, newline-separated.
+* **Copy (N)** — copies the selected addresses to your clipboard, newline-separated.
 * **Refresh (N)** — refresh balances for selected.
-* **Delete (N)** — bulk delete with a confirmation modal.
+* **Delete (N)** — bulk delete the selected wallets with a confirmation modal.
 * **Consolidate** — pick 2+ wallets to gather their balances into one destination. Native token only.
 * **Disperse** — pick exactly 1 source wallet to send out to many recipients.
 * **Token consolidate / disperse** — same flow but for SPL / Aptos / Sui tokens (Solana, Aptos, Sui groups only).
-* **Reset Nonce** *(EVM only)* — kicks any wallet whose local nonce got out of sync; cancels stuck pending txs by re-broadcasting them with `0` value to self at higher gas. Use this if a task is hanging on `pending` and you can't figure out why.
+* **Reset Nonce** _(EVM only)_ — kicks any wallet whose local nonce got out of sync; cancels stuck pending txs by re-broadcasting them with `0` value to self at higher gas. Use this if a task is hanging on `pending` and you can't figure out why.
 
 ## Editing a wallet
 
-Double-click a row (or the edit icon) to open the edit modal. You can rename, view the masked private key, copy it to the clipboard, or change watch-only status. The full key is only revealed when you explicitly click the show button.
+Click edit icon to open the edit modal. You can rename, view the masked private key, copy it to the clipboard. The full key is only revealed when you explicitly click the show button.
 
 ## Where the keys actually live
 
-* All keys are stored **encrypted on your disk**, in the app's local data folder.
+* All keys are stored **on your disk**, in the app's local data folder.
 * The data folder lives in your user profile (`%APPDATA%\com.degens\` on Windows, `~/Library/Application Support/com.degens/` on macOS).
 * **There is no cloud sync.** The keys never leave your machine.
 * Watch-only wallets store only the address — no key material.
@@ -97,16 +93,16 @@ Double-click a row (or the edit icon) to open the edit modal. You can rename, vi
 
 ## Chains supported
 
-| Chain family | Generate | Import (PK) | Import (Seed) | Watch-only |
-|---|---|---|---|---|
-| **EVM** (all chains) | <img src="../images/icons/check.svg" width="16" alt="yes"> | <img src="../images/icons/check.svg" width="16" alt="yes"> | <img src="../images/icons/check.svg" width="16" alt="yes"> | <img src="../images/icons/check.svg" width="16" alt="yes"> |
-| **Solana** | <img src="../images/icons/check.svg" width="16" alt="yes"> | <img src="../images/icons/check.svg" width="16" alt="yes"> | — | <img src="../images/icons/check.svg" width="16" alt="yes"> |
-| **Bitcoin** | <img src="../images/icons/check.svg" width="16" alt="yes"> | <img src="../images/icons/check.svg" width="16" alt="yes"> | — | <img src="../images/icons/check.svg" width="16" alt="yes"> |
-| **Sui** | <img src="../images/icons/check.svg" width="16" alt="yes"> | <img src="../images/icons/check.svg" width="16" alt="yes"> | <img src="../images/icons/check.svg" width="16" alt="yes"> | <img src="../images/icons/check.svg" width="16" alt="yes"> |
-| **Aptos** | <img src="../images/icons/check.svg" width="16" alt="yes"> | <img src="../images/icons/check.svg" width="16" alt="yes"> | — | <img src="../images/icons/check.svg" width="16" alt="yes"> |
+| Chain family         | Generate                             | Import (PK)                          | Import (Seed)                                                            | Watch-only                           |
+| -------------------- | ------------------------------------ | ------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------ |
+| **EVM** (all chains) | ![yes](../.gitbook/assets/check.svg) | ![yes](../.gitbook/assets/check.svg) | <img src="../.gitbook/assets/check.svg" alt="yes" data-size="line">      | ![yes](../.gitbook/assets/check.svg) |
+| **Solana**           | ![yes](../.gitbook/assets/check.svg) | ![yes](../.gitbook/assets/check.svg) | <img src="../.gitbook/assets/image (7).png" alt="" data-size="original"> | ![yes](../.gitbook/assets/check.svg) |
+| **Bitcoin**          | ![yes](../.gitbook/assets/check.svg) | ![yes](../.gitbook/assets/check.svg) | <img src="../.gitbook/assets/image (5).png" alt="" data-size="original"> | ![yes](../.gitbook/assets/check.svg) |
+| **Sui**              | ![yes](../.gitbook/assets/check.svg) | ![yes](../.gitbook/assets/check.svg) | ![yes](../.gitbook/assets/check.svg)                                     | ![yes](../.gitbook/assets/check.svg) |
+| **Aptos**            | ![yes](../.gitbook/assets/check.svg) | ![yes](../.gitbook/assets/check.svg) | <img src="../.gitbook/assets/image (6).png" alt="" data-size="original"> | ![yes](../.gitbook/assets/check.svg) |
 
 EVM groups cover every EVM chain (Ethereum, Arbitrum, Base, Polygon, etc.) — the chain is a per-task setting, not per-group. The other chains are 1 group = 1 chain.
 
----
+***
 
 Wallets need RPCs to read state. Next: [RPCs](rpcs.md).

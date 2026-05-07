@@ -2,24 +2,6 @@
 
 This is the core engine. Tasks are how you actually mint — one task per wallet, configured with a target contract, gas, mint params, and any platform-specific logic. You stage them, run them in batches, schedule them for drop time, and watch them land.
 
-**On this page:**
-
-* [Mental model](#mental-model)
-* [Creating a task group](#creating-a-task-group)
-* [Creating a task](#creating-a-task)
-* [The task table](#the-task-table)
-* [Status lifecycle](#status-lifecycle)
-* [Running tasks](#running-tasks)
-* [Scheduling](#scheduling)
-* [Repeater](#repeater)
-* [Batch mode](#batch-mode)
-* [Bulk operations](#bulk-operations)
-* [Tips for actually landing mints](#tips-for-actually-landing-mints)
-
----
-
-## Mental model
-
 * **Tasks live inside groups.** A group is tied to a chain family (EVM, Solana, Sui, Aptos, Bitcoin) and a platform.
 * **One task = one wallet.** If you're minting on 30 wallets, you have 30 tasks (in the same group, for the same drop).
 * **Groups have shared gas.** When you bulk-edit gas across a group, every task in it updates.
@@ -45,10 +27,10 @@ With a group selected, click **+ Create Task**. A docked modal slides in. The fo
 
 * **Wallets** — pick one or more from your wallet groups. Each selected wallet becomes one task.
 * **RPC group** — which RPC group routes the transactions. Should be on the right chain.
-* **Proxy group** *(optional)* — proxies to rotate through.
-* **Captcha keys** *(optional, only if the platform needs it)* — which provider/key to use.
+* **Proxy group** _(optional)_ — proxies to rotate through.
+* **Captcha keys** _(optional, only if the platform needs it)_ — which provider/key to use.
 
-![Create Task modal — top section showing the platform picker, the OpenSea contract URL, the wallet group selector, the RPC group, proxies, and captcha keys.](../images/task-create-1-resources.jpg)
+![Create Task modal — top section showing the platform picker, the OpenSea contract URL, the wallet group selector, the RPC group, proxies, and captcha keys.](../.gitbook/assets/task-create-1-resources.jpg)
 
 ### Gas settings
 
@@ -60,18 +42,17 @@ Two modes:
 
 You can also set a **Gas Limit** override. If you skip it, the engine estimates from the contract.
 
-![Mint and gas settings — Quantity, Price, Monitor/Send/Spam/Batch toggles, and the gas mode selector with the EIP-1559 fields exposed.](../images/task-create-3-gas.png)
+![Mint and gas settings — Quantity, Price, Monitor/Send/Spam/Batch toggles, and the gas mode selector with the EIP-1559 fields exposed.](../.gitbook/assets/task-create-3-gas.png)
 
 ### Mint parameters
 
 * **Quantity** — how many tokens per transaction.
-* **Mint price** — in Wei (or the chain's smallest unit). Set to 0 for free mints. **Per token, not total.**
+* **Mint price** — Set to 0 for free mints. **Per token, not total.**
 * **Max retries** — if the tx fails (revert, network error), how many times to retry.
-* **Delay before mint (ms)** — wait this long after starting the task before sending the tx.
-* **Timestamp** — Unix timestamp (seconds) for [scheduling](#scheduling). Leave at 0 for "run immediately".
+* **Timestamp** — Unix timestamp (seconds) for [scheduling](tasks.md#scheduling). Leave at 0 for "run immediately".
 * **Spam mode** — retries aggressively on every error; for ultra-competitive drops where you'd rather burn a few wallets than miss.
 * **Monitor** — keep watching the tx after broadcast for re-orgs or replacement. Default off.
-* **Batch mode** — coordinate leader/follower mints. See [Batch mode](#batch-mode).
+* **Batch mode** — coordinate leader/follower mints. See [Batch mode](tasks.md#batch-mode).
 * **Send mode** — auto-transfer the minted NFT to a destination wallet after success. Set the destination in [Settings → Wallet Settings → Send NFTs To](../settings/settings.md#wallet-settings).
 
 ### Platform-specific fields
@@ -84,7 +65,7 @@ Each platform exposes its own form section. Examples:
 * **Custom:** paste raw hex calldata, or pick an ABI method + params.
 * **Lab:** the inputs declared by your manifest.
 
-![Create Task modal — OpenSea Mint Phase cards (WL active, Public upcoming) above the Transaction Payload section.](../images/task-create-2-phases.png)
+![Create Task modal — OpenSea Mint Phase cards (WL active, Public upcoming) above the Transaction Payload section.](../.gitbook/assets/task-create-2-phases.png)
 
 ### Transaction payload
 
@@ -96,28 +77,28 @@ Click **Create** and a row per selected wallet appears in the table, all in the 
 
 Each row shows:
 
-| Column | Content |
-|---|---|
-| ☑ | Selection checkbox |
-| Wallet | Truncated address (mask toggle in header redacts to `*****`) |
-| Platform | Logo or manifest icon |
-| Gas | Mode + prices ("Auto-FAST", "150 / 160 Gwei"). Mask toggle works here too. |
-| Status | A badge — see lifecycle below |
-| Actions | <img src="../images/icons/play.svg" width="16" alt="run"> run · <img src="../images/icons/square.svg" width="16" alt="stop"> stop · <img src="../images/icons/trash-2.svg" width="16" alt="delete"> delete · <img src="../images/icons/repeat.svg" width="16" alt="repeater"> repeater |
+| Column   | Content                                                                                                                                                                                        |
+| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ☑        | Selection checkbox                                                                                                                                                                             |
+| Wallet   | Truncated address (mask toggle in header redacts to `*****`)                                                                                                                                   |
+| Platform | Logo or manifest icon                                                                                                                                                                          |
+| Gas      | Mode + prices ("Auto-FAST", "150 / 160 Gwei"). Mask toggle works here too.                                                                                                                     |
+| Status   | A badge — see lifecycle below                                                                                                                                                                  |
+| Actions  | ![run](../.gitbook/assets/play.svg) run · ![stop](../.gitbook/assets/square.svg) stop · ![delete](../.gitbook/assets/trash-2.svg) delete · ![repeater](../.gitbook/assets/repeat.svg) repeater |
 
 Selected rows highlight cyan. Errored rows show red. Successes go green.
 
-![Tasks page — five rows in a mix of states: Success with block link, Failed, Confirming, Monitoring, Idle.](../images/tasks-table.jpg)
+![Tasks page — five rows in a mix of states: Success with block link, Failed, Confirming, Monitoring, Idle.](../.gitbook/assets/tasks-table.jpg)
 
 ## Status lifecycle
 
 ```
-   ┌────┐    Run     ┌─────────┐  broadcast  ┌────────────┐  confirmed  ┌─────────┐
-   │idle│ ─────────► │ running │ ──────────► │ confirming │ ──────────► │ success │
-   └────┘            └────┬────┘             └──────┬─────┘             └────┬────┘
+   ┌────┐    Run     ┌───────────┐  broadcast  ┌────────────┐  confirmed  ┌─────────┐
+   │idle│ ─────────► │ monitoring│ ──────────► │ confirming │ ──────────► │ success │
+   └────┘            └────┬──────┘             └──────┬─────┘             └────┬────┘
                           │                         │                        │ send mode
                   pre-flight error              revert                       ▼
-                          ▼                         ▼                  ┌──────────────┐
+                          ▼                         ▼                   ┌──────────────┐
                        ┌──────┐                  ┌──────┐               │ transferring │
                        │failed│                  │failed│               └──────┬───────┘
                        └──────┘                  └──────┘                      │
@@ -129,23 +110,23 @@ Selected rows highlight cyan. Errored rows show red. Successes go green.
 
 With **batch mode**, runners enter a `waiting` state until the leader broadcasts. With **send mode**, a successful task auto-transfers the NFT to the destination wallet — the row goes through `transferring` before settling on `transferred`.
 
-| Status | What it means |
-|---|---|
-| **idle** | Created but not started, or stopped |
-| **running** | Tx submitted to the network |
-| **confirming** | In mempool, awaiting block inclusion |
-| **success** | Confirmed; the NFT is yours |
-| **failed** | Reverted or network errored after retries |
-| **stopped** | You clicked stop |
-| **waiting** *(batch only)* | Follower waiting for leader |
-| **transferring** *(send mode)* | Auto-transferring to destination |
-| **transferred** | Delivered to destination |
+| Status                         | What it means                             |
+| ------------------------------ | ----------------------------------------- |
+| **idle**                       | Created but not started, or stopped       |
+| **monitoring**                 | Tx submitted to the network               |
+| **confirming**                 | In mempool, awaiting block inclusion      |
+| **success**                    | Confirmed; the NFT is yours               |
+| **failed**                     | Reverted or network errored after retries |
+| **stopped**                    | You clicked stop                          |
+| **waiting** _(batch only)_     | Follower waiting for leader               |
+| **transferring** _(send mode)_ | Auto-transferring to destination          |
+| **transferred**                | Delivered to destination                  |
 
 Failed rows show an error chip with the truncated reason; click to see the tx hash on the explorer (if there is one).
 
 ## Running tasks
 
-* **Single task** — <img src="../images/icons/play.svg" width="16" alt="run"> icon on the row.
+* **Single task** — ![run](../.gitbook/assets/play.svg) icon on the row.
 * **Bulk run** — tick the checkboxes (or the header checkbox to select all in the group), then **Run** in the bottom toolbar. Selected tasks fire in parallel.
 * **Stop** — works on a running row, or in bulk on selected.
 * **Delete** — only enabled on non-running tasks. Stop first.
@@ -154,7 +135,7 @@ Failed rows show an error chip with the truncated reason; click to see the tx ha
 
 Set the **Timestamp** field to a Unix time (seconds since epoch). When you start the task:
 
-1. It transitions to **running** immediately.
+1. It transitions to **Monitoring** immediately.
 2. But it doesn't broadcast yet — it waits in-process until `now >= timestamp`.
 3. The row shows "Waiting until: HH:MM:SS" while it counts down.
 4. At the timestamp, it fires.
@@ -167,7 +148,7 @@ Setting a past timestamp = "run immediately". You can pre-stage tasks scheduled 
 
 ## Repeater
 
-Click <img src="../images/icons/repeat.svg" width="16" alt="repeater"> on a row to set a repeat count. The task will run that many times in succession (mints N times, advancing nonce each time, on the same wallet).
+Click ![repeater](../.gitbook/assets/repeat.svg) on a row to set a repeat count. The task will run that many times in succession (mints N times, advancing nonce each time, on the same wallet).
 
 * The row shows progress as `2/5`, `3/5`, etc.
 * After the limit is hit, the task auto-stops.
@@ -181,7 +162,7 @@ When `Batch mode` is enabled on a group with 2+ wallets, the engine coordinates 
 * The rest become **followers**, sit in the **waiting** state.
 * The leader actually broadcasts the tx; followers fire in lockstep right behind.
 
-This protects against RPC mempool spam when 50 wallets all hit the same contract from the same machine. Useful for leader/follower drops where the platform expects a transaction order.
+This helps in task where we don't have any fixed timing. We try to simulate transaction from one wallet and as soon as its transaction gets successful, the other follows it.
 
 ## Bulk operations
 
@@ -199,12 +180,11 @@ Header toggles let you hide the **Wallet Address** column or the **Gas** column.
 ## Tips for actually landing mints
 
 * **Test with one wallet first.** Always. On any new platform, a one-wallet dry-run catches platform-specific footguns before you spam 50 wallets into the void.
-* **Prefer batch mode for >20 wallets** on a single contract. RPCs will rate-limit you and the leader/follower coordination significantly improves landing rate.
 * **Match RPC group to the contract's chain.** The runner doesn't validate this for you — if you point a Base RPC at an Ethereum contract, every task will fail.
 * **Use scheduled timestamps for advertised drops.** Don't sit there clicking Run at the millisecond — schedule, walk away, come back to a green table.
 * **Watch the first 1–2 results before spamming Retry.** If task 1 reverts with `InsufficientFunds`, hitting Retry on the rest is wasted gas. Open the failed row, read the error, fix the inputs, then re-run.
 * **The Custom platform is for advanced cases.** If a built-in platform exists for your drop, use it. Custom skips most of the safety checks.
 
----
+***
 
 Next: [NFTs](nfts.md).

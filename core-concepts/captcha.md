@@ -4,18 +4,21 @@ Some platforms (and many WL endpoints) gate their flows behind a captcha — Clo
 
 ## Supported providers
 
-| Provider | Notes |
-|---|---|
+| Provider       | Notes                                                     |
+| -------------- | --------------------------------------------------------- |
 | **CapMonster** | Default. Cheapest for hCaptcha + Turnstile in most cases. |
-| **2Captcha** | Old reliable. Solid for reCAPTCHA. |
-| **CapSolver** | Fast, decent prices, modern API. |
+| **2Captcha**   | Old reliable. Solid for reCAPTCHA.                        |
+| **CapSolver**  | Fast, decent prices, modern API.                          |
 
 You can store multiple keys for the same provider — useful if you want to split balance across accounts, or load-balance.
 
 ## Adding a key
 
 1. Sign up with your chosen provider and grab your API key from their dashboard.
-2. In Degens, click **Add Key** in the bottom toolbar.
+2.  In Degens, click **Add Key** in the bottom toolbar.\
+    <br>
+
+    <div align="center"><figure><img src="../.gitbook/assets/image (11).png" alt="" width="344"><figcaption></figcaption></figure></div>
 3. Fill in:
    * **Name** — your label (e.g., "CapMonster main", "2Captcha backup").
    * **API Key** — paste it.
@@ -59,6 +62,6 @@ You can store multiple keys per provider; the rotation spreads load and helps if
 * **Keep at least two providers configured** as a fallback. If CapMonster has an outage during your drop, swapping to 2Captcha is one click.
 * **Don't share screenshots that include API keys.** The mask toggle helps, but the safest path is to never reveal them on screen at all.
 
----
+***
 
 That covers the building blocks. Now: features. Start with the [Dashboard](../features/dashboard.md).
