@@ -2,6 +2,22 @@
 
 This is the core engine. Tasks are how you actually mint — one task per wallet, configured with a target contract, gas, mint params, and any platform-specific logic. You stage them, run them in batches, schedule them for drop time, and watch them land.
 
+**On this page:**
+
+* [Mental model](#mental-model)
+* [Creating a task group](#creating-a-task-group)
+* [Creating a task](#creating-a-task)
+* [The task table](#the-task-table)
+* [Status lifecycle](#status-lifecycle)
+* [Running tasks](#running-tasks)
+* [Scheduling](#scheduling)
+* [Repeater](#repeater)
+* [Batch mode](#batch-mode)
+* [Bulk operations](#bulk-operations)
+* [Tips for actually landing mints](#tips-for-actually-landing-mints)
+
+---
+
 ## Mental model
 
 * **Tasks live inside groups.** A group is tied to a chain family (EVM, Solana, Sui, Aptos, Bitcoin) and a platform.
@@ -95,16 +111,22 @@ Selected rows highlight cyan. Errored rows show red. Successes go green.
 
 ## Status lifecycle
 
-```
-idle → running → confirming → success
-                    ↓
-                  failed
-                    
-Any state → stopped (user clicked stop)
+```mermaid
+stateDiagram-v2
+    [*] --> idle
+    idle --> running: Run
+    running --> confirming: tx broadcast
+    confirming --> success: confirmed
+    confirming --> failed: revert
+    running --> failed: pre-flight error
+    idle --> stopped: Stop
+    running --> stopped: Stop
+    confirming --> stopped: Stop
+    success --> transferring: send mode on
+    transferring --> transferred: NFT delivered
 ```
 
-With **batch mode**: `waiting → running → ...`
-With **send mode**: `success → transferring → transferred`
+With **batch mode**, runners enter a `waiting` state until the leader broadcasts. With **send mode**, a successful task auto-transfers the NFT to the destination wallet — the row goes through `transferring` before settling on `transferred`.
 
 | Status | What it means |
 |---|---|
@@ -136,7 +158,9 @@ Set the **Timestamp** field to a Unix time (seconds since epoch). When you start
 3. The row shows "Waiting until: HH:MM:SS" while it counts down.
 4. At the timestamp, it fires.
 
-> **One-time, absolute schedules only.** There's no recurring cron. If you want a task to fire at the same time on three days, create three tasks. Use the [Dashboard's Unix Converter](dashboard.md#unix-converter) to translate human times into Unix.
+{% hint style="info" %}
+**One-time, absolute schedules only.** There's no recurring cron. If you want a task to fire at the same time on three days, create three tasks. Use the [Dashboard's Unix Converter](dashboard.md#unix-converter) to translate human times into Unix.
+{% endhint %}
 
 Setting a past timestamp = "run immediately". You can pre-stage tasks scheduled hours in advance and they'll just wait.
 

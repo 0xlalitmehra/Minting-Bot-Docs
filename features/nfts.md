@@ -2,7 +2,9 @@
 
 The NFTs page is a bulk-action tool for moving NFTs between your own wallets. You point it at a contract, pick token IDs (for ERC-1155), and either **consolidate** (many wallets → one) or **disperse** (one wallet → many).
 
-> **EVM only.** The page has buttons for Solana, Bitcoin, Sui, and Aptos at the top, but only EVM is wired up today. The other tabs show a "currently available only for EVM chains" notice.
+{% hint style="info" %}
+**EVM only.** The page has buttons for Solana, Bitcoin, Sui, and Aptos at the top, but only EVM is wired up today. The other tabs show a "currently available only for EVM chains" notice.
+{% endhint %}
 
 ## When to use this
 

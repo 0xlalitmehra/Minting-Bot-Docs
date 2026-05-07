@@ -4,6 +4,7 @@
 
 ## Getting Started
 
+* [Quickstart](getting-started/quickstart.md)
 * [Installation](getting-started/installation.md)
 * [First Launch & Login](getting-started/first-launch.md)
 * [Interface Tour](getting-started/interface-tour.md)
@@ -30,5 +31,7 @@
 
 ## Help
 
+* [Common Workflows](help/workflows.md)
 * [Troubleshooting](help/troubleshooting.md)
 * [FAQ](help/faq.md)
+* [Glossary](help/glossary.md)

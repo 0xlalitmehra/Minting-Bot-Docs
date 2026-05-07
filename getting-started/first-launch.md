@@ -16,7 +16,9 @@ There's exactly one way in: **Login with Discord.**
 
 If your browser doesn't bounce back into the app within ~60 seconds, you'll be returned to the login screen with a "Login window closed or timed out" message. Just click **Login with Discord** again.
 
-> **No password, no seed phrase, no private key needed to log in.** Your access is tied to your Discord account and your active subscription role in the server.
+{% hint style="info" %}
+**No password, no seed phrase, no private key needed to log in.** Your access is tied to your Discord account and your active subscription role in the server.
+{% endhint %}
 
 ## Device binding
 
@@ -29,7 +31,9 @@ If you see this on login, it means your account is currently bound to a differen
 1. **Log out on the original machine** and try again.
 2. Click the **Reset & login on this device** button (amber, appears only when this error is shown). This unbinds the previous device and binds the new one.
 
-> **Heads up:** the reset is throttled to **once per 24 hours** server-side. If you reset and then change your mind, you have to wait it out. Don't hop between devices casually.
+{% hint style="warning" %}
+**Heads up:** the reset is throttled to **once per 24 hours** server-side. If you reset and then change your mind, you have to wait it out. Don't hop between devices casually.
+{% endhint %}
 
 ## Subscription expired ("Your subscription is no longer active")
 

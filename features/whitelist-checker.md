@@ -11,7 +11,9 @@ The built-in checker supports **EVM** drops on:
 * **Scatter**
 * **Blever**
 
-> **Why not Element / HyperLaunch / Manifold?** Those platforms either require complex per-platform auth (sign-in flows the checker can't replicate cheaply) or expose phase data through endpoints that change too often to baseline. The minting side of [Tasks](tasks.md) supports them; the checker doesn't (yet).
+{% hint style="info" %}
+**Why not Element / HyperLaunch / Manifold?** Those platforms either require complex per-platform auth (sign-in flows the checker can't replicate cheaply) or expose phase data through endpoints that change too often to baseline. The minting side of [Tasks](tasks.md) supports them; the checker doesn't (yet).
+{% endhint %}
 
 For everything else (custom platforms, new launches), use the [Laboratory](laboratory.md) — manifests with a `phaseList` eligibility section show up in this picker too.
 
@@ -50,7 +52,9 @@ A wallet that's eligible **for any non-public phase** is highlighted as a "WL hi
 
 ![WL Checker results — summary cards on top, per-wallet phase badges (WL ✓ 10 / Public ✓ 1010), and the "Create Group" footer for spawning a new wallet group from eligible wallets.](../images/wl-checker-results.jpg)
 
-> **Results live in memory only.** Reload the page (or quit the app) and they're gone. There's no export button — copy what you need before you leave.
+{% hint style="warning" %}
+**Results live in memory only.** Reload the page (or quit the app) and they're gone. There's no export button — copy what you need before you leave.
+{% endhint %}
 
 ## Spawning a new wallet group from eligible wallets
 

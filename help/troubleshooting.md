@@ -2,6 +2,21 @@
 
 Things break. Here's what to check before throwing the laptop.
 
+**Jump to a section:**
+
+* [Login & auth](#login--auth)
+* [Wallets](#wallets)
+* [RPCs](#rpcs)
+* [Proxies](#proxies)
+* [Captcha](#captcha)
+* [Tasks](#tasks)
+* [Whitelist Checker](#whitelist-checker)
+* [NFTs page](#nfts-page)
+* [Updates](#updates)
+* [App-wide](#app-wide)
+
+---
+
 ## Login & auth
 
 ### "Login window closed or timed out"

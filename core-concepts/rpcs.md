@@ -9,7 +9,9 @@ RPCs are the URLs your wallets and tasks talk to. Every balance check, every gas
 * Each group can hold up to **500 endpoints**.
 * When a task runs, it picks an RPC from its assigned group — typically rotating to spread load and dodge rate limits.
 
-> **The RPCs page is EVM-only.** Solana, Sui, Aptos, and Bitcoin use built-in defaults from the chain SDKs and don't surface here.
+{% hint style="info" %}
+**The RPCs page is EVM-only.** Solana, Sui, Aptos, and Bitcoin use built-in defaults from the chain SDKs and don't surface here.
+{% endhint %}
 
 ![RPCs page after a ping pass — Mainnet group with mixed results (fast latency on some, still "unknown" on others).](../images/rpcs.jpg)
 
@@ -43,7 +45,9 @@ The ping runs in two phases:
 
 While the ping is running, the row's status pulses. After it finishes, you'll see green for online with a latency number, red for offline, or gray for unknown.
 
-> **Latency is round-trip ping, not gas-bid speed.** A 50ms RPC isn't always faster at landing transactions than a 200ms one — geography, rate limits, and validator peering matter. Use latency as a filter, not gospel.
+{% hint style="info" %}
+**Latency is round-trip ping, not gas-bid speed.** A 50ms RPC isn't always faster at landing transactions than a 200ms one — geography, rate limits, and validator peering matter. Use latency as a filter, not gospel.
+{% endhint %}
 
 ## Chain validation
 

@@ -2,9 +2,15 @@
 
 > **All-in-one blockchain automation tool for the Degens community.**
 
+![The Degens dashboard with the Floor-Based Gas Calculator open.](images/dashboard.jpg)
+
 Degens is a desktop app that handles the parts of minting that suck — managing wallets, juggling RPCs, checking whitelist eligibility, running mints across multiple wallets, and authoring custom platform integrations when something new drops.
 
 It runs locally on your machine and keeps everything — wallets, RPCs, proxies, captcha keys, manifests — on your disk, encrypted. **Nothing about your wallets ever leaves your computer.**
+
+{% hint style="success" %}
+**First time?** Skip the long read and head straight to the [Quickstart](getting-started/quickstart.md) — first mint in 5 minutes.
+{% endhint %}
 
 ## What you can do with it
 
@@ -28,18 +34,22 @@ If you're brand new to all of this, start with [Getting Started](getting-started
 
 ## How to use this guide
 
-* **Brand new?** Read [Getting Started](getting-started/installation.md) → [Interface Tour](getting-started/interface-tour.md), then dip into the [Core Concepts](core-concepts/wallets.md) for wallets, RPCs, and proxies.
+* **Brand new?** [Quickstart](getting-started/quickstart.md) → [Installation](getting-started/installation.md) → [Interface Tour](getting-started/interface-tour.md), then dip into the [Core Concepts](core-concepts/wallets.md).
 * **Just want to mint something?** Skim [Wallets](core-concepts/wallets.md), [RPCs](core-concepts/rpcs.md), then jump to [Tasks](features/tasks.md).
+* **Have a specific scenario in mind?** [Common Workflows](help/workflows.md) has recipes for the things people actually do.
 * **Building a custom platform?** Go straight to [Laboratory](features/laboratory.md).
+* **Confused by a term?** [Glossary](help/glossary.md).
 * **Something broke?** [Troubleshooting](help/troubleshooting.md) and [FAQ](help/faq.md).
 
 ## A note on safety
 
 This app handles private keys. A few things to internalize before you go further:
 
-* **Your keys live on your computer, encrypted, in a local database.** They aren't sent anywhere.
+{% hint style="danger" %}
+* **Your keys live on your computer, encrypted, in a local data folder.** They aren't sent anywhere.
 * **There is no cloud backup.** If you wipe the app or your machine, your imported keys are gone unless you backed up the seed phrases yourself, somewhere safe.
 * **Test with throwaway wallets first.** Especially on Tasks and Laboratory. There's no "undo" on a mainnet transaction.
 * **Don't share screenshots that include private keys, mnemonics, or unmasked addresses.** The app has a mask toggle on every sensitive screen — use it.
+{% endhint %}
 
 Now go mint something.

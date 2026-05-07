@@ -28,7 +28,9 @@ The key is stored locally — never sent anywhere except to the provider it belo
 
 Each row has a test icon, and you can bulk-test selected keys with **Test Selected** in the toolbar. Test results surface in a toast — success means the provider accepted the key.
 
-> Some providers also expose balance via their API. If shown, the table includes a balance column updated when you test. If you don't see balance, your provider doesn't return it — check the provider dashboard directly.
+{% hint style="info" %}
+Some providers also expose balance via their API. If shown, the table includes a balance column updated when you test. If you don't see balance, your provider doesn't return it — check the provider dashboard directly.
+{% endhint %}
 
 ## Editing a key
 

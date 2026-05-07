@@ -76,7 +76,9 @@ Workflow:
 
 Paste that hex into a Custom task's payload field, or use it to verify what a tool you don't trust is actually about to send.
 
-> If the contract isn't verified on Etherscan, the ABI fetch fails and you'll need to paste the ABI manually (or use a different contract).
+{% hint style="info" %}
+If the contract isn't verified on Etherscan, the ABI fetch fails and you'll need to paste the ABI manually (or use a different contract).
+{% endhint %}
 
 ## PnL Calculator
 

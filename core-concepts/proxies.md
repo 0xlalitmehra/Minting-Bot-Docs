@@ -23,7 +23,9 @@ My Residential 2,123.45.67.89:8080:user:password
 * `ip:port:user:pass` → authenticated proxy (most paid services).
 * Optional `name,` prefix to label the proxy. Otherwise, names auto-increment ("Proxy 1", "Proxy 2", ...).
 
-> **HTTP/HTTPS proxies, not full URLs.** Don't paste `https://` URLs — just the host and port. SOCKS5 is supported by underlying clients but not officially formatted in the input UI.
+{% hint style="info" %}
+**HTTP/HTTPS proxies, not full URLs.** Don't paste `https://` URLs — just the host and port. SOCKS5 is supported by underlying clients but not officially formatted in the input UI.
+{% endhint %}
 
 You can also bulk-import from a `.txt` file with the file picker on the Add modal.
 

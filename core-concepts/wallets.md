@@ -91,7 +91,9 @@ Double-click a row (or the edit icon) to open the edit modal. You can rename, vi
 * **There is no cloud sync.** The keys never leave your machine.
 * Watch-only wallets store only the address — no key material.
 
-> **Backups are your job.** If the data folder gets deleted or corrupted, your wallets are gone unless you have the original seed phrases / private keys somewhere safe. The Settings page has an [Export Data](../settings/settings.md#export-data) section that can dump wallets to CSV if you want a portable backup. Treat that file like cash.
+{% hint style="danger" %}
+**Backups are your job.** If the data folder gets deleted or corrupted, your wallets are gone unless you have the original seed phrases / private keys somewhere safe. The Settings page has an [Export Data](../settings/settings.md#export-data) section that can dump wallets to CSV if you want a portable backup. Treat that file like cash.
+{% endhint %}
 
 ## Chains supported
 

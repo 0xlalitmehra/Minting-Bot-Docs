@@ -64,7 +64,9 @@ Two cards.
 * **Buttons:** Save, Test, Clear.
 * **Test** runs a quick `getBlockNumber` call against Alchemy. Toast tells you pass/fail.
 
-> **Both keys are stored locally only.** The app never proxies them through any server. They're used directly from your machine to Etherscan / Alchemy.
+{% hint style="info" %}
+**Both keys are stored locally only.** The app never proxies them through any server. They're used directly from your machine to Etherscan / Alchemy.
+{% endhint %}
 
 ## Wallet Settings
 

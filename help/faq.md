@@ -2,6 +2,20 @@
 
 Quick answers to the most common questions.
 
+**On this page:**
+
+* [General](#general)
+* [Subscription](#subscription)
+* [Wallets](#wallets)
+* [RPCs](#rpcs)
+* [Tasks](#tasks)
+* [Whitelist Checker](#whitelist-checker)
+* [Laboratory](#laboratory)
+* [Updates](#updates)
+* [Privacy & safety](#privacy--safety)
+
+---
+
 ## General
 
 ### Is this a wallet?

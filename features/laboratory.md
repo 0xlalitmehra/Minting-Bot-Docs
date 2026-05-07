@@ -2,9 +2,24 @@
 
 The Laboratory is where power users add **custom platforms** to the app. A new chain is launching, a new mint pad pops up, an obscure protocol you want to bot — instead of waiting for built-in support, you write a **manifest** (a JSON document describing how to call the platform) and the app treats it like any other platform.
 
+**On this page:**
+
+* [What's a manifest?](#whats-a-manifest)
+* [The Laboratory page](#the-laboratory-page)
+* [The editor — Edit mode](#the-editor--edit-mode)
+* [The editor — Test mode](#the-editor--test-mode)
+* [Phase 2 features](#phase-2-features)
+* [How custom platforms surface elsewhere](#how-custom-platforms-surface-elsewhere)
+* [What's missing today (be honest)](#whats-missing-today-be-honest)
+* [Authoring workflow, end-to-end](#authoring-workflow-end-to-end)
+
+---
+
 Lab platforms show up in the [Whitelist Checker](whitelist-checker.md) (if eligibility is defined) and the [Tasks](tasks.md) page (if a transaction step is defined), alongside built-ins.
 
-> **This is the deepest feature in the app.** If you're brand new, get comfortable with [Wallets](../core-concepts/wallets.md), [Tasks](tasks.md), and [WL Checker](whitelist-checker.md) first. Manifest authoring assumes you can read API docs, JSON, and basic ABI fragments.
+{% hint style="warning" %}
+**This is the deepest feature in the app.** If you're brand new, get comfortable with [Wallets](../core-concepts/wallets.md), [Tasks](tasks.md), and [WL Checker](whitelist-checker.md) first. Manifest authoring assumes you can read API docs, JSON, and basic ABI fragments.
+{% endhint %}
 
 ## What's a manifest?
 
