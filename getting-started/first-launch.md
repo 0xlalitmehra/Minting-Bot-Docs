@@ -2,6 +2,8 @@
 
 When you launch Degens for the first time, you'll see a brief loading spinner while the app provisions a unique device ID, followed by the **Login screen**.
 
+![The Degens login screen — Discord OAuth is the only way in.](../images/login.png)
+
 ## Logging in
 
 There's exactly one way in: **Login with Discord.**

@@ -48,6 +48,8 @@ Below that, a per-wallet row shows:
 
 A wallet that's eligible **for any non-public phase** is highlighted as a "WL hit". Wallets that are only eligible for the public sale aren't usually worth bulk-grouping — everyone is eligible for public.
 
+![WL Checker results — summary cards on top, per-wallet phase badges (WL ✓ 10 / Public ✓ 1010), and the "Create Group" footer for spawning a new wallet group from eligible wallets.](../images/wl-checker-results.jpg)
+
 > **Results live in memory only.** Reload the page (or quit the app) and they're gone. There's no export button — copy what you need before you leave.
 
 ## Spawning a new wallet group from eligible wallets

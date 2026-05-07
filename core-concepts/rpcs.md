@@ -11,6 +11,8 @@ RPCs are the URLs your wallets and tasks talk to. Every balance check, every gas
 
 > **The RPCs page is EVM-only.** Solana, Sui, Aptos, and Bitcoin use built-in defaults from the chain SDKs and don't surface here.
 
+![RPCs page after a ping pass — Mainnet group with mixed results (fast latency on some, still "unknown" on others).](../images/rpcs.jpg)
+
 ## Adding RPCs
 
 Click **Add RPC** in the bottom toolbar. You'll see a textarea — paste URLs in any of these formats, one per line:

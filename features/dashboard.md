@@ -2,6 +2,8 @@
 
 The Dashboard is your home base — quick utilities you reach for during drop prep without breaking flow. It's a bento-style grid of small tools, each useful on its own.
 
+![Dashboard view with the Floor-Based Gas Calculator open and a recommended priority fee on the right.](../images/dashboard.jpg)
+
 ## What's on it
 
 | Widget | What it does |

@@ -2,6 +2,8 @@
 
 Settings is a single scrollable page broken into sections. Open it from the sidebar (gear icon at the bottom).
 
+![The Settings page — Account, Default Network, About & Updates, UI Zoom, Export Data, API Keys, Wallet Settings, and Advanced Settings stacked top to bottom.](../images/settings.png)
+
 ## Overview
 
 Three cards at the top:

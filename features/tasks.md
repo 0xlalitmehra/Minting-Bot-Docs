@@ -32,6 +32,8 @@ With a group selected, click **+ Create Task**. A docked modal slides in. The fo
 * **Proxy group** *(optional)* — proxies to rotate through.
 * **Captcha keys** *(optional, only if the platform needs it)* — which provider/key to use.
 
+![Create Task modal — top section showing the platform picker, the OpenSea contract URL, the wallet group selector, the RPC group, proxies, and captcha keys.](../images/task-create-1-resources.jpg)
+
 ### Gas settings
 
 Two modes:
@@ -41,6 +43,8 @@ Two modes:
 * **Manual Legacy** — single gas price (older chains / contracts that require it).
 
 You can also set a **Gas Limit** override. If you skip it, the engine estimates from the contract.
+
+![Mint and gas settings — Quantity, Price, Monitor/Send/Spam/Batch toggles, and the gas mode selector with the EIP-1559 fields exposed.](../images/task-create-3-gas.png)
 
 ### Mint parameters
 
@@ -64,6 +68,8 @@ Each platform exposes its own form section. Examples:
 * **Custom:** paste raw hex calldata, or pick an ABI method + params.
 * **Lab:** the inputs declared by your manifest.
 
+![Create Task modal — OpenSea Mint Phase cards (WL active, Public upcoming) above the Transaction Payload section.](../images/task-create-2-phases.png)
+
 ### Transaction payload
 
 For built-in platforms, this is auto-generated from the contract + phase data. For **Custom** tasks, this is where you paste hex or build the call. The [Dashboard's Contract Hex Generator](dashboard.md#contract-hex-generator) is the easy way to produce one.
@@ -84,6 +90,8 @@ Each row shows:
 | Actions | ▶ run · ⏹ stop · 🗑 delete · 🔁 repeater |
 
 Selected rows highlight cyan. Errored rows show red. Successes go green.
+
+![Tasks page — five rows in a mix of states: Success with block link, Failed, Confirming, Monitoring, Idle.](../images/tasks-table.jpg)
 
 ## Status lifecycle
 

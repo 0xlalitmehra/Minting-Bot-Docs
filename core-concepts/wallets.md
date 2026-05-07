@@ -11,6 +11,8 @@ Wallets are the foundation. Every task, every WL check, every balance refresh ru
 
 You'll typically have a few groups per chain — e.g., "EVM Main", "EVM Burners", "Solana", "Sui Test" — and pick a group when you're queueing a task.
 
+![Wallets page — group strip across the top, wallet table with masked addresses, bulk-action toolbar at the bottom.](../images/wallets.jpg)
+
 ## Adding wallets
 
 Two paths from the bottom toolbar:
@@ -30,6 +32,8 @@ Click **Import**. You'll see a tabbed dialog with three import modes:
 | **Private Key** | One key per line, or `name,privatekey` per line | EVM, Solana, Bitcoin, Aptos, Sui all supported |
 | **Seed Phrase** | Mnemonic + optional passphrase | EVM and Sui — derives the first N accounts |
 | **Address only** | Just an address | Watch-only — useful for tracking, can't sign txs |
+
+![The Import Wallets modal — Private Key tab active, with a format hint and a file-import button.](../images/wallet-import.png)
 
 You can also click the file-picker to import from a `.txt` or `.csv` instead of pasting.
 

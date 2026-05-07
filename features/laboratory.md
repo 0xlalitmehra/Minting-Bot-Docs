@@ -69,6 +69,8 @@ A reorderable list. Click **Add Step** to insert one of:
 
 Steps are collapsible cards with inline validation. If you reference a template variable that doesn't exist (e.g., `{{response.foo}}` when no step set `response`), you'll see an amber warning right on the card.
 
+![Laboratory editor on the Steps tab — an `http_request` step expanded with URL, headers, JSON body, timeout, expected status, and retry config.](../images/laboratory.png)
+
 #### Templates
 
 Throughout the manifest, fields can use `{{...}}` template syntax to reference:
