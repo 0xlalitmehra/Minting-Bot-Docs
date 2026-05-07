@@ -8,6 +8,7 @@
 * [Installation](getting-started/installation.md)
 * [First Launch & Login](getting-started/first-launch.md)
 * [Interface Tour](getting-started/interface-tour.md)
+* [Essential Setup](getting-started/essential-setup.md)
 
 ## Core Concepts
 
