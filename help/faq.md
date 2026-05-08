@@ -32,14 +32,14 @@ Built-in:
 * **Aptos**
 * **Bitcoin**
 
-Via [Laboratory](features/laboratory.md) manifests:
+Via [Laboratory](../features/laboratory.md) manifests:
 
 * Any EVM chain via custom platforms (today)
 * Non-EVM Lab platforms are roadmap, not shipped
 
 ### Is my data synced anywhere?
 
-No. Everything — wallets, RPCs, proxies, captcha keys, manifests, settings — is local. There's no cloud account, no sync. The flip side: there's no cloud backup either. **Use** [**Export Data**](settings/settings.md#export-data) **regularly.**
+No. Everything — wallets, RPCs, proxies, captcha keys, manifests, settings — is local. There's no cloud account, no sync. The flip side: there's no cloud backup either. **Use** [**Export Data**](../settings/settings.md#export-data) **regularly.**
 
 ### Can I run it on Linux?
 
@@ -47,7 +47,7 @@ Not officially. Windows and macOS are the supported platforms. Linux isn't shipp
 
 ### Can I run two instances on different machines?
 
-No — device binding pins your account to one machine at a time. To switch, log out on machine A, then log in (or reset) on machine B. See [First Launch → Device binding](getting-started/first-launch.md#device-binding).
+No — device binding pins your account to one machine at a time. To switch, log out on machine A, then log in (or reset) on machine B. See [First Launch → Device binding](../getting-started/first-launch.md#device-binding).
 
 ## Subscription
 
@@ -71,7 +71,7 @@ The app encrypts keys before storing them locally. Encryption is tied to your op
 
 ### Can I export a wallet's private key?
 
-Yes — open the wallet's edit modal and click the show/copy buttons. Or bulk-export a group via [Settings → Export Data](settings/settings.md#export-data) to CSV.
+Yes — open the wallet's edit modal and click the show/copy buttons. Or bulk-export a group via [Settings → Export Data](../settings/settings.md#export-data) to CSV.
 
 ### What's "watch-only"?
 
@@ -91,7 +91,7 @@ Up to **500**. You won't need that many; 5–10 high-quality endpoints is usuall
 
 ### What platforms are built-in?
 
-OpenSea, Blever, Element, HyperLaunch, Manifold, Mintify, Scatter, and **Custom** (raw payload). Plus anything you add via [Laboratory](features/laboratory.md).
+OpenSea, Blever, Element, HyperLaunch, Manifold, Mintify, Scatter, and **Custom** (raw payload). Plus anything you add via [Laboratory](../features/laboratory.md).
 
 ### Does it support free mints?
 
@@ -103,7 +103,7 @@ No. Schedules are **one-time absolute timestamps**. For recurring use, the task 
 
 ### What's batch mode for?
 
-Coordinating leader/follower mints when many wallets hit the same contract. The leader broadcasts; followers fire in lockstep behind. Reduces RPC mempool pressure and improves landing rate. See [Tasks → Batch mode](features/tasks.md#batch-mode).
+Coordinating leader/follower mints when many wallets hit the same contract. The leader broadcasts; followers fire in lockstep behind. Reduces RPC mempool pressure and improves landing rate. See [Tasks → Batch mode](../features/tasks.md#batch-mode).
 
 ### Can I see logs for a task?
 
@@ -111,17 +111,17 @@ Failed tasks show an error chip with a truncated reason and a link to the tx has
 
 ### Send mode failed silently
 
-Check [Settings → Wallet Settings → Send NFTs To](settings/settings.md#wallet-settings) — it has to be set, and the task has to have **Send mode** enabled.
+Check [Settings → Wallet Settings → Send NFTs To](../settings/settings.md#wallet-settings) — it has to be set, and the task has to have **Send mode** enabled.
 
 ## Whitelist Checker
 
 ### Why aren't all platforms supported?
 
-Element, HyperLaunch, and Manifold use authentication flows or phase APIs the checker can't safely replicate. They work in [Tasks](features/tasks.md) where you provide context, but not in the bulk checker.
+Element, HyperLaunch, and Manifold use authentication flows or phase APIs the checker can't safely replicate. They work in [Tasks](../features/tasks.md) where you provide context, but not in the bulk checker.
 
 ### Can I export the results?
 
-Not directly — but you can spawn a new wallet group from the eligible wallets, which is usually what you wanted anyway. See [WL Checker → Spawning a new wallet group](features/whitelist-checker.md#spawning-a-new-wallet-group-from-eligible-wallets).
+Not directly — but you can spawn a new wallet group from the eligible wallets, which is usually what you wanted anyway. See [WL Checker → Spawning a new wallet group](../features/whitelist-checker.md#spawning-a-new-wallet-group-from-eligible-wallets).
 
 ### Results disappeared
 
@@ -149,7 +149,7 @@ Most likely the eligibility section isn't fully configured, or the chain ID does
 
 ### How often does the app check for updates?
 
-Every 6 hours after login. You can also trigger a manual check from [Settings → Check for Updates](settings/settings.md#about--updates).
+Every 6 hours after login. You can also trigger a manual check from [Settings → Check for Updates](../settings/settings.md#about--updates).
 
 ### What if I miss an update?
 
@@ -177,7 +177,7 @@ Up to you. The auth scopes are minimal (identity + guild membership), and Degens
 
 ### Should I use a hardware wallet with this?
 
-Hardware wallets aren't currently supported as signers. Mints happen with hot keys (private keys the app holds). Use throwaway wallets for risky drops, and transfer winnings to cold storage afterward (the [NFTs](features/nfts.md) page makes that bulk-easy).
+Hardware wallets aren't currently supported as signers. Mints happen with hot keys (private keys the app holds). Use throwaway wallets for risky drops, and transfer winnings to cold storage afterward (the [NFTs](../features/nfts.md) page makes that bulk-easy).
 
 ### What happens to my data if Degens shuts down?
 
